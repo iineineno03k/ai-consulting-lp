@@ -4,25 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>1業務から始めるAI活用定着支援</title>
-  <meta name="description" content="中小企業向けに、AI活用をまず1つの業務から社内に定着させる支援です。AI活用レベル診断、改善テーマ選定、小さなPoC、運用定着まで伴走します。初回テーマ例として問い合わせ対応の半自動化にも対応します。" />
+  <meta name="description" content="中小企業向けに、AI活用をまず1つの業務から社内に定着させる支援です。AI活用レベル診断、改善テーマ選定、小さなPoC、運用定着まで伴走します。" />
   <link rel="icon" href="data:,">
   <style>
     :root {
-      --ink: #111815;
-      --muted: #5d6862;
-      --line: #dedbd2;
-      --paper: #fbfaf6;
-      --paper-2: #f1f0ea;
-      --card: #fffefa;
-      --green: #174a34;
-      --green-2: #0f3324;
-      --green-soft: #e8efe9;
-      --accent: #b86d38;
-      --accent-soft: #f5e8dc;
-      --radius: 14px;
+      --ink: #101411;
+      --text: #24302a;
+      --muted: #68736c;
+      --line: #d8ddd8;
+      --line-dark: #b9c2ba;
+      --paper: #f7f8f4;
+      --sheet: #fffef9;
+      --green: #124732;
+      --green-2: #0b2c1f;
+      --green-soft: #e6eee7;
+      --amber: #b4672d;
+      --amber-soft: #f4e5d7;
+      --blueprint: #e9edf2;
+      --danger: #884b2e;
+      --radius: 10px;
       --radius-pill: 999px;
-      --shadow-sm: 0 1px 0 rgba(17,24,21,.08);
-      --shadow: 0 18px 50px rgba(17,24,21,.08);
+      --shadow: 0 24px 70px rgba(16,20,17,.10);
     }
 
     * { box-sizing: border-box; }
@@ -30,515 +32,372 @@
     body {
       margin: 0;
       color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(17,24,21,.028) 1px, transparent 1px) 0 0 / 42px 42px,
-        var(--paper);
+      background: var(--paper);
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.85;
+      line-height: 1.82;
       letter-spacing: normal;
       font-weight: 400;
     }
-
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(18,71,50,.045) 1px, transparent 1px) 0 0 / 48px 48px,
+        linear-gradient(0deg, rgba(18,71,50,.035) 1px, transparent 1px) 0 0 / 48px 48px;
+      opacity: .8;
+      z-index: -1;
+    }
     a { color: inherit; }
-    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
     .topbar {
-      padding: 18px 0;
+      background: rgba(247,248,244,.92);
       border-bottom: 1px solid var(--line);
-      background: rgba(251,250,246,.88);
       backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
     }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--green-2);
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .brand img {
-      width: 34px;
-      height: 34px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--line);
-      background: var(--card);
-    }
-
-    .hero { padding: 72px 0 58px; }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr);
-      gap: 54px;
-      align-items: start;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-pill);
-      background: rgba(255,254,250,.72);
-      color: var(--green-2);
-      font-weight: 600;
-      font-size: 12px;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: var(--radius-pill);
-      background: var(--green);
-    }
-    h1 {
-      margin: 20px 0 18px;
-      max-width: 780px;
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
-      font-size: clamp(34px, 6vw, 64px);
-      line-height: 1.22;
-      letter-spacing: normal;
-      font-weight: 700;
-      color: var(--ink);
-    }
-    .lead {
-      margin: 0;
-      max-width: 700px;
-      color: #303b36;
-      font-size: clamp(16px, 2.4vw, 19px);
-      line-height: 2;
-      letter-spacing: normal;
-    }
-    .lead strong { color: var(--green-2); font-weight: 700; background: linear-gradient(transparent 64%, rgba(184,109,56,.18) 0); }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-      align-items: center;
-    }
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 50px;
-      padding: 13px 19px;
-      border-radius: var(--radius-pill);
-      font-weight: 700;
-      text-decoration: none;
-      border: 1px solid transparent;
-    }
-    .btn-primary { background: var(--green); color: white; }
-    .btn-secondary { background: transparent; color: var(--green-2); border-color: var(--line); }
-    .microcopy { color: var(--muted); font-size: 13px; margin-top: 12px; }
-
-    .proof-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0;
-      margin-top: 30px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .proof-item {
-      padding: 12px 18px 12px 0;
-      margin-right: 18px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .proof-item b { display: block; color: var(--green-2); font-size: 16px; line-height: 1.35; }
-
-    .visual-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
-      position: relative;
-    }
-    .visual-label {
+    .topbar-inner {
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-      color: var(--muted);
+      gap: 18px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; color: var(--green-2); font-size: 14px; }
+    .brand img { width: 34px; height: 34px; border-radius: var(--radius-pill); border: 1px solid var(--line-dark); background: white; }
+    .nav-note { color: var(--muted); font-size: 12px; }
+
+    .hero { padding: 52px 0 64px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .94fr) minmax(420px, 1.06fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-pill);
+      background: rgba(255,254,249,.8);
+      color: var(--green-2);
       font-size: 12px;
       font-weight: 700;
     }
-    .visual-label span:last-child { color: var(--accent); }
-    .worknote {
-      min-height: 390px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(23,74,52,.06), transparent 34%),
-        repeating-linear-gradient(0deg, transparent 0 37px, rgba(17,24,21,.06) 38px),
-        #fffdf7;
-      padding: 24px;
+    .kicker::before { content: ""; width: 8px; height: 8px; border-radius: var(--radius-pill); background: var(--green); }
+    h1 {
+      margin: 18px 0 18px;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(35px, 5.4vw, 62px);
+      line-height: 1.2;
+      letter-spacing: normal;
+      font-weight: 700;
+    }
+    .lead {
+      margin: 0;
+      max-width: 650px;
+      color: var(--text);
+      font-size: clamp(16px, 2.1vw, 18px);
+      line-height: 2;
+    }
+    .lead strong { color: var(--green-2); font-weight: 700; background: linear-gradient(transparent 62%, rgba(180,103,45,.20) 0); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--green);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-secondary { background: rgba(255,254,249,.72); color: var(--green-2); border-color: var(--line-dark); }
+    .microcopy { margin-top: 12px; color: var(--muted); font-size: 13px; }
+    .proof-strip {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .proof-strip div { padding: 13px 14px 13px 0; border-right: 1px solid var(--line); }
+    .proof-strip div:last-child { border-right: 0; }
+    .proof-strip b { display: block; color: var(--green-2); font-size: 18px; line-height: 1.25; }
+    .proof-strip span { color: var(--muted); font-size: 12px; font-weight: 600; }
+
+    .diagnosis-sheet {
       position: relative;
+      background: var(--sheet);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .worknote::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      bottom: -44px;
-      width: 150px;
-      height: 150px;
-      border-radius: var(--radius-pill);
-      background: rgba(184,109,56,.10);
+    .sheet-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfaf3;
     }
-    .worknote-title {
-      margin: 0 0 18px;
+    .sheet-title { font-weight: 700; color: var(--green-2); font-size: 13px; }
+    .sheet-id { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+    .sheet-body { padding: 22px; }
+    .sheet-headline {
+      display: grid;
+      grid-template-columns: 1fr 74px;
+      gap: 18px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 2px solid var(--green-2);
+    }
+    .sheet-headline p {
+      margin: 0;
       font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
-      font-size: 28px;
+      font-size: clamp(24px, 3vw, 34px);
       line-height: 1.35;
       font-weight: 700;
       color: var(--green-2);
     }
-    .worknote-grid { display: grid; gap: 12px; position: relative; z-index: 1; }
-    .worknote-row {
+    .sheet-headline img { width: 74px; height: 74px; border-radius: var(--radius-pill); border: 1px solid var(--line-dark); background: white; }
+    .sheet-table { display: grid; margin-top: 14px; border-top: 1px solid var(--line); }
+    .sheet-row {
       display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 12px;
-      align-items: start;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(17,24,21,.10);
+      grid-template-columns: 112px 1fr;
+      gap: 16px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .worknote-row b { color: var(--accent); font-size: 13px; }
-    .worknote-row span { color: #2d3833; font-size: 14px; line-height: 1.7; }
-    .face-badge {
+    .sheet-row b { color: var(--amber); font-size: 13px; }
+    .sheet-row span { color: var(--text); font-size: 14px; }
+    .sheet-stamp {
       position: absolute;
       right: 18px;
-      top: 18px;
-      display: grid;
-      place-items: center;
-      width: 58px;
-      height: 58px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--line);
-      background: var(--card);
-      z-index: 2;
+      bottom: 18px;
+      transform: rotate(-7deg);
+      border: 2px solid rgba(180,103,45,.65);
+      color: var(--amber);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-weight: 700;
+      background: rgba(255,254,249,.78);
+      font-size: 12px;
     }
-    .face-badge img { width: 48px; height: 48px; border-radius: var(--radius-pill); object-fit: cover; }
-    .visual-caption {
-      margin: 12px 2px 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    .visual-caption b { color: var(--green-2); font-weight: 700; }
 
     .section { padding: 66px 0; border-top: 1px solid var(--line); }
-    main > section:nth-of-type(even) { background: rgba(241,240,234,.72); }
-    .section-head { margin-bottom: 26px; max-width: 790px; }
-    .label {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
+    .section:nth-of-type(even) { background: rgba(255,254,249,.52); }
+    .section-head { max-width: 780px; margin-bottom: 28px; }
+    .label { margin-bottom: 8px; color: var(--amber); font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     h2 {
       margin: 0 0 10px;
       font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
-      font-size: clamp(26px, 4.2vw, 42px);
+      font-size: clamp(27px, 4vw, 42px);
       line-height: 1.35;
       letter-spacing: normal;
       font-weight: 700;
     }
-    .section-lead { margin: 0; color: var(--muted); max-width: 790px; }
+    .section-lead { margin: 0; color: var(--muted); max-width: 760px; }
 
-    .editorial-grid {
-      display: grid;
-      grid-template-columns: .92fr 1.08fr;
-      gap: 34px;
-      align-items: stretch;
-    }
+    .two-col { display: grid; grid-template-columns: .9fr 1.1fr; gap: 34px; align-items: start; }
     .statement {
       background: var(--green-2);
       color: white;
       border-radius: var(--radius);
-      padding: 30px;
+      padding: 28px;
+      min-height: 310px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 320px;
     }
-    .statement b { font-size: clamp(28px, 5vw, 48px); line-height: 1.25; font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif; }
-    .statement span { color: rgba(255,255,255,.78); font-size: 14px; margin-top: 20px; display: block; }
-    .issue-list {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 6px 24px;
-    }
-    .issue-row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 18px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .issue-row:last-child { border-bottom: 0; }
-    .issue-row b { color: var(--green-2); font-weight: 700; }
-    .issue-row span { color: var(--muted); font-size: 14px; }
+    .statement b { font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif; font-size: clamp(28px, 4.6vw, 48px); line-height: 1.28; }
+    .statement span { color: rgba(255,255,255,.78); font-size: 14px; }
+    .rows { background: var(--sheet); border: 1px solid var(--line-dark); border-radius: var(--radius); overflow: hidden; }
+    .row { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 18px 20px; border-bottom: 1px solid var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .row b { color: var(--green-2); }
+    .row span { color: var(--muted); font-size: 14px; }
 
-    .process {
-      display: grid;
-      gap: 14px;
-    }
-    .process-row {
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 18px;
-      align-items: start;
-      background: var(--card);
-      border: 1px solid var(--line);
+    .process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .process-step {
+      background: var(--sheet);
+      border: 1px solid var(--line-dark);
       border-radius: var(--radius);
       padding: 22px;
+      min-height: 230px;
     }
-    .process-num {
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
-      color: var(--accent);
-      font-size: 34px;
-      line-height: 1;
-      font-weight: 700;
-    }
-    .process-row h3 { margin: 0 0 4px; font-size: 20px; line-height: 1.5; }
-    .process-row p { margin: 0; color: var(--muted); }
+    .process-step .num { color: var(--amber); font-weight: 700; font-variant-numeric: tabular-nums; font-size: 13px; }
+    .process-step h3 { margin: 12px 0 8px; font-size: 21px; line-height: 1.45; color: var(--green-2); }
+    .process-step p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .usecase {
+    .usecase-board {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-    .case-panel {
-      background: var(--card);
-      border: 1px solid var(--line);
+      border: 1px solid var(--line-dark);
       border-radius: var(--radius);
-      padding: 24px;
+      overflow: hidden;
+      background: var(--sheet);
     }
-    .case-panel h3 { margin: 0 0 12px; font-size: 20px; }
-    .case-panel ul { margin: 0; padding-left: 1.2em; color: var(--muted); }
-    .case-panel li { margin: 6px 0; }
-    .case-panel.after { border-color: rgba(23,74,52,.32); background: #fbfffb; }
+    .usecase-side { padding: 24px; }
+    .usecase-side + .usecase-side { border-left: 1px solid var(--line); background: #fbfff9; }
+    .usecase-side h3 { margin: 0 0 14px; color: var(--green-2); font-size: 20px; }
+    .usecase-side ul { margin: 0; padding-left: 1.25em; color: var(--muted); }
+    .usecase-side li { margin: 7px 0; }
 
-    .pricing {
+    .asset-block {
       display: grid;
-      grid-template-columns: .86fr 1fr 1.15fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .price-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      position: relative;
-    }
-    .price-card.featured {
-      border: 1px solid var(--green);
-      box-shadow: var(--shadow);
-      background: linear-gradient(180deg, var(--green-soft), var(--card) 42%);
-    }
-    .tag {
-      display: inline-block;
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      color: #704425;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .featured .tag { background: var(--green); color: white; }
-    .price-title { margin: 0; font-weight: 700; font-size: 18px; line-height: 1.5; }
-    .price { margin: 10px 0 10px; font-size: 30px; line-height: 1.2; font-weight: 700; color: var(--green); letter-spacing: normal; }
-    .price small { font-size: 13px; color: var(--muted); font-weight: 600; }
-    .price-card p { margin: 0; color: var(--muted); font-size: 14px; }
-
-    .authority {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    .authority-main {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-    .big {
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
-      font-size: clamp(44px, 8vw, 74px);
-      line-height: 1.05;
-      letter-spacing: normal;
-      font-weight: 700;
-      color: var(--green);
-      margin: 8px 0 14px;
-    }
-    .authority-main p { margin: 0; color: #3d4d45; }
-    .authority-list { display: grid; gap: 12px; }
-    .authority-item {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-    .authority-item b { display:block; margin-bottom: 6px; font-weight: 700; }
-    .authority-item span { color: var(--muted); font-size: 14px; }
-
-    .profile-panel {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 20px;
-      align-items: start;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
-    }
-    .profile-panel img { width: 100px; height: 100px; border-radius: var(--radius-pill); object-fit: cover; border: 1px solid var(--line); }
-    .profile-panel p { margin: 0; color: #3f4d47; }
-
-    .cta-panel {
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
       background: var(--green-2);
       color: white;
       border-radius: var(--radius);
-      padding: 34px;
-      box-shadow: var(--shadow);
+      padding: 24px;
+      overflow: hidden;
     }
+    .asset-block h2 { color: white; }
+    .asset-block p { color: rgba(255,255,255,.78); margin: 0; }
+    .asset-frame {
+      background: var(--sheet);
+      border-radius: var(--radius);
+      padding: 10px;
+      box-shadow: 0 18px 44px rgba(0,0,0,.22);
+    }
+    .asset-frame img { display: block; width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--line); }
+
+    .pricing { display: grid; grid-template-columns: .85fr 1fr 1.15fr; gap: 14px; align-items: stretch; }
+    .price-card { background: var(--sheet); border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 22px; }
+    .price-card.featured { border: 2px solid var(--green); box-shadow: var(--shadow); }
+    .tag { display: inline-block; padding: 4px 9px; border-radius: var(--radius-pill); background: var(--amber-soft); color: #6f3e20; font-size: 12px; font-weight: 700; margin-bottom: 10px; }
+    .featured .tag { background: var(--green); color: white; }
+    .price-title { margin: 0; font-weight: 700; font-size: 18px; line-height: 1.5; }
+    .price { margin: 10px 0; color: var(--green); font-size: 30px; line-height: 1.2; font-weight: 700; letter-spacing: normal; }
+    .price small { font-size: 13px; color: var(--muted); font-weight: 600; }
+    .price-card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .authority { display: grid; grid-template-columns: .92fr 1.08fr; gap: 18px; align-items: stretch; }
+    .authority-main { background: var(--sheet); border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 26px; }
+    .big { margin: 6px 0 12px; color: var(--green); font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif; font-size: clamp(46px, 8vw, 76px); line-height: 1; font-weight: 700; letter-spacing: normal; }
+    .authority-main p { margin: 0; color: var(--text); }
+    .authority-list { display: grid; gap: 12px; }
+    .authority-item { background: var(--sheet); border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 18px; }
+    .authority-item b { display: block; margin-bottom: 6px; color: var(--green-2); }
+    .authority-item span { color: var(--muted); font-size: 14px; }
+
+    .profile-panel { display: grid; grid-template-columns: 94px 1fr; gap: 20px; background: var(--sheet); border: 1px solid var(--line-dark); border-radius: var(--radius); padding: 24px; align-items: start; }
+    .profile-panel img { width: 94px; height: 94px; border-radius: var(--radius-pill); object-fit: cover; border: 1px solid var(--line-dark); }
+    .profile-panel p { margin: 0; color: var(--text); }
+
+    .cta-panel { background: var(--green); color: white; border-radius: var(--radius); padding: 34px; box-shadow: var(--shadow); }
     .cta-panel h2 { color: white; }
-    .cta-panel p { color: rgba(255,255,255,.82); margin: 0 0 18px; max-width: 780px; }
-    .cta-panel .btn { background: #fff; color: var(--green-2); }
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      left: 12px;
-      right: 12px;
-      bottom: 12px;
-      z-index: 20;
-      padding: 12px 16px;
-      border-radius: var(--radius-pill);
-      background: rgba(15,51,36,.96);
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-    footer {
-      padding: 34px 0 72px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-      border-top: 1px solid var(--line);
-      background: var(--paper);
-    }
+    .cta-panel p { color: rgba(255,255,255,.82); margin: 0 0 20px; max-width: 780px; }
+    .cta-panel .btn { background: white; color: var(--green-2); border-color: white; }
+    footer { padding: 34px 0 52px; color: var(--muted); font-size: 13px; text-align: center; border-top: 1px solid var(--line); }
 
     @media (max-width: 900px) {
-      .hero-grid, .editorial-grid, .usecase, .authority { grid-template-columns: 1fr; }
-      .hero { padding-top: 48px; }
-      .pricing { grid-template-columns: 1fr; }
-      .statement { min-height: 240px; }
+      .hero-grid, .two-col, .asset-block, .authority { grid-template-columns: 1fr; }
+      .hero { padding-top: 38px; }
+      .process, .pricing { grid-template-columns: 1fr; }
+      .proof-strip { grid-template-columns: 1fr; }
+      .proof-strip div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .proof-strip div:last-child { border-bottom: 0; }
     }
-
     @media (max-width: 560px) {
-      .wrap { width: min(100% - 28px, 1100px); }
-      .topbar { padding: 14px 0; position: static; }
-      .hero { padding: 42px 0 46px; }
-      h1 { margin-top: 16px; }
-      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .wrap { width: min(100% - 28px, 1120px); }
+      .topbar-inner { min-height: 56px; }
+      .nav-note { display: none; }
+      .hero { padding: 34px 0 46px; }
+      h1 { font-size: clamp(34px, 10.5vw, 46px); }
+      .hero-grid > div:first-child { display: contents; }
+      .kicker { order: 1; width: max-content; max-width: 100%; }
+      h1 { order: 2; }
+      .lead { order: 3; }
+      .diagnosis-sheet { order: 4; margin-top: 8px; }
+      .actions { order: 5; }
+      .microcopy { order: 6; }
+      .proof-strip { order: 7; }
+      .actions { display: grid; grid-template-columns: 1fr; }
       .btn { width: 100%; }
-      .proof-line { display: grid; }
-      .proof-item { margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); }
-      .proof-item:last-child { border-bottom: 0; }
-      .worknote { min-height: 360px; padding: 18px; }
-      .worknote-title { font-size: 23px; padding-right: 58px; }
-      .worknote-row { grid-template-columns: 1fr; gap: 3px; }
+      .sheet-body { padding: 16px; }
+      .sheet-headline { grid-template-columns: 1fr 58px; gap: 12px; }
+      .sheet-headline img { width: 58px; height: 58px; }
+      .sheet-row { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+      .sheet-stamp { display: none; }
       .section { padding: 46px 0; }
-      .issue-list { padding: 2px 18px; }
-      .issue-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
-      .process-row { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
+      .statement { min-height: 240px; }
+      .row { grid-template-columns: 1fr; gap: 4px; }
+      .usecase-board { grid-template-columns: 1fr; }
+      .usecase-side + .usecase-side { border-left: 0; border-top: 1px solid var(--line); }
+      .asset-block { padding: 18px; }
       .profile-panel { grid-template-columns: 72px 1fr; gap: 12px; padding: 18px; }
       .profile-panel img { width: 72px; height: 72px; }
       .price { font-size: 28px; }
-      .sticky-cta { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="wrap">
-      <div class="brand">
-        <img src="assets/inajiro.png" alt="いなじろう" />
-        <span>稲田裕次郎（いなじろう）</span>
-      </div>
-    </div>
-  </div>
-
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">中小企業向け / 社内AI活用の最初の一歩</div>
-        <h1>AI活用を、まず1業務から社内に定着させる。</h1>
-        <p class="lead">
-          AIツールを配って終わりではなく、現場の業務を一緒に分解し、<strong>人が確認できる形でAIを組み込む</strong>ところまで伴走します。最初は、問い合わせ対応のように効果が見えやすい1業務から始めます。
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://x.com/inajiro1717">AI活用レベルを相談する</a>
-          <a class="btn btn-secondary" href="#consult">料金を見る</a>
-        </div>
-        <div class="microcopy">まずは情報交換から。Web制作会社・マーケ支援者の方からの紹介相談も歓迎です。</div>
-        <div class="proof-line" aria-label="実績">
-          <div class="proof-item"><b>MENTA銅メダル</b>相談支援の実績</div>
-          <div class="proof-item"><b>70名以上</b>個人向けにサポート</div>
-          <div class="proof-item"><b>1業務から</b>小さくPoC</div>
-        </div>
-      </div>
-
-      <aside class="visual-card" aria-label="初回診断で見るもの">
-        <div class="visual-label"><span>初回診断のイメージ</span><span>業務改善カルテ</span></div>
-        <div class="worknote">
-          <div class="face-badge"><img src="assets/inajiro.png" alt="いなじろう" /></div>
-          <p class="worknote-title">まず、1業務をカルテにします。</p>
-          <div class="worknote-grid">
-            <div class="worknote-row"><b>現状</b><span>問い合わせ対応に時間がかかり、担当者ごとに判断が分かれる。</span></div>
-            <div class="worknote-row"><b>分解</b><span>分類、確認事項、返信案、最終送信に分ける。</span></div>
-            <div class="worknote-row"><b>AI</b><span>下書きと不足情報チェックまで。送信判断は人が持つ。</span></div>
-            <div class="worknote-row"><b>残す型</b><span>確認ルール、対応ログ、次に広げる業務候補。</span></div>
-          </div>
-        </div>
-        <p class="visual-caption"><b>初回相談では、この粒度で1業務を整理します。</b> 実際の業務資料や画面を見ながら、AIに任せる範囲と人が見る範囲を切り分けます。</p>
-      </aside>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand"><img src="assets/inajiro.png" alt="いなじろう" /><span>稲田裕次郎（いなじろう）</span></div>
+      <div class="nav-note">AI業務改善 / 1業務からの定着支援</div>
     </div>
   </header>
 
   <main>
-    <section class="section">
-      <div class="wrap editorial-grid">
-        <div class="statement">
-          <b>AIを入れたのに、仕事は変わっていない。</b>
-          <span>この状態を避けるために、ツール導入ではなく「業務への組み込み」から見ます。</span>
-        </div>
+    <section class="hero">
+      <div class="wrap hero-grid">
         <div>
-          <div class="section-head">
-            <div class="label">Problem</div>
-            <h2>問題は、AIツール不足ではありません。</h2>
-            <p class="section-lead">多くの会社で止まっているのは、AIそのものではなく、日々の業務のどこにどう差し込むかです。</p>
+          <div class="kicker">中小企業向け / 社内AI活用の最初の一歩</div>
+          <h1>AI活用を、まず1業務から社内に定着させる。</h1>
+          <p class="lead">AIツールを配って終わりではなく、現場の業務を一緒に分解し、<strong>人が確認できる形でAIを組み込む</strong>ところまで伴走します。最初は、問い合わせ対応のように効果が見えやすい1業務から始めます。</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://x.com/inajiro1717">AI活用レベルを相談する</a>
+            <a class="btn btn-secondary" href="#consult">料金を見る</a>
           </div>
-          <div class="issue-list">
-            <div class="issue-row"><b>触って終わる</b><span>ChatGPTを試しても、実際の業務フローに入らず、個人の試行錯誤で止まる。</span></div>
-            <div class="issue-row"><b>研修で終わる</b><span>便利そうとは感じても、翌日から何を変えるかが決まらない。</span></div>
-            <div class="issue-row"><b>一部の人だけ使う</b><span>AIに慣れた人だけが効率化し、チーム全体には広がらない。</span></div>
+          <p class="microcopy">まずは情報交換から。Web制作会社・マーケ支援者の方からの紹介相談も歓迎です。</p>
+          <div class="proof-strip" aria-label="実績">
+            <div><b>MENTA銅メダル</b><span>相談支援の実績</span></div>
+            <div><b>70名以上</b><span>個人向けにサポート</span></div>
+            <div><b>1業務から</b><span>小さくPoC</span></div>
+          </div>
+        </div>
+
+        <aside class="diagnosis-sheet" aria-label="初回診断カルテのイメージ">
+          <div class="sheet-top"><span class="sheet-title">AI活用レベル診断カルテ</span><span class="sheet-id">sample / 01</span></div>
+          <div class="sheet-body">
+            <div class="sheet-headline">
+              <p>まず、どの業務なら安全に変えられるかを見る。</p>
+              <img src="assets/inajiro.png" alt="いなじろう" />
+            </div>
+            <div class="sheet-table">
+              <div class="sheet-row"><b>現状</b><span>問い合わせ対応に時間がかかり、担当者ごとに判断が分かれている。</span></div>
+              <div class="sheet-row"><b>分解</b><span>分類、確認事項、返信案、最終送信に分ける。</span></div>
+              <div class="sheet-row"><b>AIの範囲</b><span>下書きと不足情報チェックまで。送信判断は人が持つ。</span></div>
+              <div class="sheet-row"><b>残す型</b><span>確認ルール、対応ログ、次に広げる業務候補。</span></div>
+            </div>
+          </div>
+          <div class="sheet-stamp">人間確認あり</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap two-col">
+        <div class="statement"><b>AIを入れたのに、仕事は変わっていない。</b><span>この状態を避けるために、ツール導入ではなく「業務への組み込み」から見ます。</span></div>
+        <div>
+          <div class="section-head"><div class="label">Problem</div><h2>問題は、AIツール不足ではありません。</h2><p class="section-lead">多くの会社で止まっているのは、AIそのものではなく、日々の業務のどこにどう差し込むかです。</p></div>
+          <div class="rows">
+            <div class="row"><b>触って終わる</b><span>ChatGPTを試しても、実際の業務フローに入らず、個人の試行錯誤で止まる。</span></div>
+            <div class="row"><b>研修で終わる</b><span>便利そうとは感じても、翌日から何を変えるかが決まらない。</span></div>
+            <div class="row"><b>一部の人だけ使う</b><span>AIに慣れた人だけが効率化し、チーム全体には広がらない。</span></div>
           </div>
         </div>
       </div>
@@ -546,95 +405,46 @@
 
     <section class="section">
       <div class="wrap">
-        <div class="section-head">
-          <div class="label">Goal</div>
-          <h2>社内に、AIを使える人と改善の型を残す。</h2>
-          <p class="section-lead">外から仕組みを作って終わりではなく、1つの業務改善を通じて「AIで業務をどう分解し、どこを人が確認するか」という感覚を社内に残します。</p>
-        </div>
+        <div class="section-head"><div class="label">Method</div><h2>診断、1業務選定、小さなPoC。</h2><p class="section-lead">全社DXの大きな話から始めず、AI活用レベルを見たうえで、効果が見えやすい1業務から始めます。</p></div>
         <div class="process">
-          <div class="process-row">
-            <div class="process-num">01</div>
-            <div><h3>業務を分解する</h3><p>判断・作業・確認・記録に分けて、AIが効く場所と人が見るべき場所を切り分けます。</p></div>
-          </div>
-          <div class="process-row">
-            <div class="process-num">02</div>
-            <div><h3>1業務で小さく試す</h3><p>全社DXではなく、効果が見えやすく、失敗しても戻せる業務からPoCします。</p></div>
-          </div>
-          <div class="process-row">
-            <div class="process-num">03</div>
-            <div><h3>次に広げられる型を残す</h3><p>手順・確認ルール・改善ログを残し、別の業務にも展開できる状態を目指します。</p></div>
-          </div>
+          <div class="process-step"><div class="num">01 / 診断</div><h3>AI活用レベルを見る</h3><p>現状の業務、データ、担当者、確認ルールを見て、AIを入れてよい範囲を切り分けます。</p></div>
+          <div class="process-step"><div class="num">02 / 選定</div><h3>1業務に絞る</h3><p>いきなり全部を変えず、効果が見えやすく、失敗しても戻せる業務を選びます。</p></div>
+          <div class="process-step"><div class="num">03 / 定着</div><h3>型を残す</h3><p>手順、確認ルール、対応ログを残し、社内の人が次の業務にも広げられる状態を目指します。</p></div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="section-head">
-          <div class="label">First Use Case</div>
-          <h2>最初の題材として、問い合わせ対応は相性がいい。</h2>
-          <p class="section-lead">問い合わせ対応は、AI活用の可能性を実務で見せやすい入口です。ただし目的は、問い合わせ対応だけを便利にすることではなく、社内でAI活用を広げるための最初の成功体験を作ることです。</p>
+        <div class="section-head"><div class="label">First Use Case</div><h2>最初の題材として、問い合わせ対応は相性がいい。</h2><p class="section-lead">問い合わせ対応は、AI活用の可能性を実務で見せやすい入口です。目的は問い合わせ対応だけを便利にすることではなく、社内でAI活用を広げるための最初の成功体験を作ることです。</p></div>
+        <div class="usecase-board">
+          <div class="usecase-side"><h3>よくある現状</h3><ul><li>フォームやメールの内容確認に時間がかかる</li><li>担当者ごとに返信品質がバラつく</li><li>過去返信やFAQが次の対応に活きていない</li><li>初動が遅れて商談化の前に温度が下がる</li></ul></div>
+          <div class="usecase-side"><h3>最初に作る状態</h3><ul><li>AIが分類・不足情報・返信案を下書きする</li><li>担当者が確認し、人間が最終送信する</li><li>対応履歴を残し、次の改善に使う</li><li>「AIを業務に入れる」感覚を社内に残す</li></ul></div>
         </div>
-        <div class="usecase">
-          <div class="case-panel">
-            <h3>よくある現状</h3>
-            <ul>
-              <li>フォームやメールの内容確認に時間がかかる</li>
-              <li>担当者ごとに返信品質がバラつく</li>
-              <li>過去返信やFAQが次の対応に活きていない</li>
-              <li>初動が遅れて商談化の前に温度が下がる</li>
-            </ul>
-          </div>
-          <div class="case-panel after">
-            <h3>最初に作る状態</h3>
-            <ul>
-              <li>AIが分類・不足情報・返信案を下書きする</li>
-              <li>担当者が確認し、人間が最終送信する</li>
-              <li>対応履歴を残し、次の改善に使う</li>
-              <li>「AIを業務に入れる」感覚を社内に残す</li>
-            </ul>
-          </div>
-        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap asset-block">
+        <div><div class="label">Material</div><h2>面談後に、社内で説明できる資料まで落とします。</h2><p>LPだけで夢を見せて終わりではなく、面談では現実の業務を分解し、相手が社内や紹介先に説明しやすい形にします。ここには1枚資料、診断カルテ、実務画面のスクショを置けます。</p></div>
+        <figure class="asset-frame"><img src="assets/ai-adoption-onepager.png" alt="AI業務改善支援の1枚資料サンプル" /></figure>
       </div>
     </section>
 
     <section class="section" id="consult">
       <div class="wrap">
-        <div class="section-head">
-          <div class="label">Offer</div>
-          <h2>まずは小さく整理し、必要な会社だけ実装へ進みます。</h2>
-          <p class="section-lead">いきなり大きな導入を前提にせず、現状のAI活用レベルと改善候補を見ます。合いそうな場合だけ、診断・実装へ進む流れです。</p>
-        </div>
+        <div class="section-head"><div class="label">Offer</div><h2>まずは小さく整理し、必要な会社だけ実装へ進みます。</h2><p class="section-lead">いきなり大きな導入を前提にせず、現状のAI活用レベルと改善候補を見ます。合いそうな場合だけ、診断・実装へ進む流れです。</p></div>
         <div class="pricing">
-          <div class="price-card">
-            <span class="tag">入口</span>
-            <h3 class="price-title">AI業務整理<br>ミニ相談</h3>
-            <div class="price">5,000円</div>
-            <p>30分。1業務だけ、AI化できる部分と人が確認すべき部分を口頭で切り分けます。</p>
-          </div>
-          <div class="price-card">
-            <span class="tag">診断</span>
-            <h3 class="price-title">AI活用レベル<br>診断</h3>
-            <div class="price">5万円</div>
-            <p>90分ヒアリング + 簡易レポート。業務フロー・必要データ・効果見込みを整理します。</p>
-          </div>
-          <div class="price-card featured">
-            <span class="tag">本命</span>
-            <h3 class="price-title">1業務AI定着<br>プログラム</h3>
-            <div class="price">標準35万円 <small>税込</small></div>
-            <p>4週間。初回テーマ例は問い合わせ対応。1問い合わせ窓口・Googleスプレッドシート/Gmail前提。範囲外は個別見積です。</p>
-          </div>
+          <div class="price-card"><span class="tag">入口</span><h3 class="price-title">AI業務整理<br>ミニ相談</h3><div class="price">5,000円</div><p>30分。1業務だけ、AI化できる部分と人が確認すべき部分を口頭で切り分けます。</p></div>
+          <div class="price-card"><span class="tag">診断</span><h3 class="price-title">AI活用レベル<br>診断</h3><div class="price">5万円</div><p>90分ヒアリング + 簡易レポート。業務フロー・必要データ・効果見込みを整理します。</p></div>
+          <div class="price-card featured"><span class="tag">本命</span><h3 class="price-title">1業務AI定着<br>プログラム</h3><div class="price">標準35万円 <small>税込</small></div><p>4週間。初回テーマ例は問い合わせ対応。1問い合わせ窓口・Googleスプレッドシート/Gmail前提。範囲外は個別見積です。</p></div>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap authority">
-        <div class="authority-main">
-          <div class="label">Proof</div>
-          <div class="big">70名以上</div>
-          <p>MENTAで個人向けにAI活用・開発学習・業務整理の相談をサポート。相手の状況を聞き、次にやることを具体化する支援を続けてきました。</p>
-        </div>
+        <div class="authority-main"><div class="label">Proof</div><div class="big">70名以上</div><p>MENTAで個人向けにAI活用・開発学習・業務整理の相談をサポート。相手の状況を聞き、次にやることを具体化する支援を続けてきました。</p></div>
         <div class="authority-list">
           <div class="authority-item"><b>MENTA 銅メダル獲得</b><span>相談支援の実績がプラットフォーム上でも見える形になっています。</span></div>
           <div class="authority-item"><b>Webアプリケーション開発の実務経験</b><span>業務を分解し、実際に使う画面・手順・運用へ落とす前提で支援します。</span></div>
@@ -646,13 +456,7 @@
     <section class="section">
       <div class="wrap profile-panel">
         <img src="assets/inajiro.png" alt="いなじろう" />
-        <div>
-          <h2>担当者</h2>
-          <p>
-            稲田裕次郎（いなじろう）。MENTAで個人向けに70名以上をサポートし、銅メダルを獲得。Webアプリケーション開発の実務経験をもとに、業務の整理から小さな仕組み化まで支援します。
-            自分自身の業務でもAIを使った情報整理・手順化・半自動化を検証しており、「1業務を題材に、安全にAI活用を始める」形を重視しています。
-          </p>
-        </div>
+        <div><h2>担当者</h2><p>稲田裕次郎（いなじろう）。MENTAで個人向けに70名以上をサポートし、銅メダルを獲得。Webアプリケーション開発の実務経験をもとに、業務の整理から小さな仕組み化まで支援します。自分自身の業務でもAIを使った情報整理・手順化・半自動化を検証しており、「1業務を題材に、安全にAI活用を始める」形を重視しています。</p></div>
       </div>
     </section>
 
@@ -665,10 +469,6 @@
     </section>
   </main>
 
-  <a class="sticky-cta" href="https://x.com/inajiro1717">AI活用レベルを相談する</a>
-
-  <footer>
-    <div class="wrap">1業務から始めるAI活用定着支援 / 稲田裕次郎（いなじろう）</div>
-  </footer>
+  <footer><div class="wrap">1業務から始めるAI活用定着支援 / 稲田裕次郎（いなじろう）</div></footer>
 </body>
 </html>
