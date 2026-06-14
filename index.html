@@ -8,21 +8,21 @@
   <link rel="icon" href="data:,">
   <style>
     :root {
-      --ink: #16201c;
-      --muted: #5c6b64;
-      --line: #e4e8e6;
-      --bg: #ffffff;
-      --bg-soft: #f5f7f6;
-      --card: #ffffff;
-      --green: #1f5d43;
-      --green-2: #163f2c;
-      --green-soft: #eef4f0;
-      --accent: #e0823a;
-      --accent-soft: #fdf0e4;
+      --ink: #111815;
+      --muted: #5d6862;
+      --line: #dedbd2;
+      --paper: #fbfaf6;
+      --paper-2: #f1f0ea;
+      --card: #fffefa;
+      --green: #174a34;
+      --green-2: #0f3324;
+      --green-soft: #e8efe9;
+      --accent: #b86d38;
+      --accent-soft: #f5e8dc;
       --radius: 14px;
       --radius-pill: 999px;
-      --shadow-sm: 0 1px 2px rgba(20,32,28,.06);
-      --shadow: 0 10px 30px rgba(20,32,28,.06);
+      --shadow-sm: 0 1px 0 rgba(17,24,21,.08);
+      --shadow: 0 18px 50px rgba(17,24,21,.08);
     }
 
     * { box-sizing: border-box; }
@@ -30,19 +30,26 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--bg);
+      background:
+        linear-gradient(90deg, rgba(17,24,21,.028) 1px, transparent 1px) 0 0 / 42px 42px,
+        var(--paper);
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      line-height: 1.8;
+      line-height: 1.85;
       letter-spacing: normal;
       font-weight: 400;
     }
 
     a { color: inherit; }
-    .wrap { width: min(1080px, calc(100% - 36px)); margin: 0 auto; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
 
     .topbar {
-      padding: 18px 0 0;
-      background: var(--bg);
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251,250,246,.88);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .brand {
       display: inline-flex;
@@ -57,30 +64,27 @@
       height: 34px;
       border-radius: var(--radius-pill);
       border: 1px solid var(--line);
-      background: white;
+      background: var(--card);
     }
 
-    .hero {
-      padding: 56px 0;
-      background: var(--bg);
-    }
+    .hero { padding: 72px 0 58px; }
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, .95fr);
-      gap: 44px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.12fr) minmax(310px, .88fr);
+      gap: 54px;
+      align-items: start;
     }
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 12px;
-      border: 1px solid rgba(31,93,67,.18);
+      padding: 6px 10px;
+      border: 1px solid var(--line);
       border-radius: var(--radius-pill);
-      background: var(--green-soft);
+      background: rgba(255,254,250,.72);
       color: var(--green-2);
       font-weight: 600;
-      font-size: 13px;
+      font-size: 12px;
     }
     .eyebrow::before {
       content: "";
@@ -88,285 +92,246 @@
       height: 8px;
       border-radius: var(--radius-pill);
       background: var(--green);
-      box-shadow: 0 0 0 4px rgba(31,93,67,.10);
     }
     h1 {
-      margin: 18px 0 16px;
-      font-size: clamp(28px, 5.2vw, 46px);
-      line-height: 1.35;
+      margin: 20px 0 18px;
+      max-width: 780px;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.22;
       letter-spacing: normal;
       font-weight: 700;
       color: var(--ink);
     }
     .lead {
       margin: 0;
-      max-width: 690px;
-      color: #33443c;
-      font-size: clamp(16px, 2.6vw, 19px);
-      line-height: 1.85;
+      max-width: 700px;
+      color: #303b36;
+      font-size: clamp(16px, 2.4vw, 19px);
+      line-height: 2;
       letter-spacing: normal;
     }
-    .lead strong { color: var(--green-2); font-weight: 600; }
+    .lead strong { color: var(--green-2); font-weight: 700; background: linear-gradient(transparent 64%, rgba(184,109,56,.18) 0); }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 26px;
+      margin-top: 28px;
       align-items: center;
     }
     .btn {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      min-height: 48px;
-      padding: 13px 18px;
+      min-height: 50px;
+      padding: 13px 19px;
       border-radius: var(--radius-pill);
       font-weight: 700;
       text-decoration: none;
       border: 1px solid transparent;
-      box-shadow: var(--shadow-sm);
     }
-    .btn-primary {
-      background: var(--green);
-      color: white;
-    }
-    .btn-secondary {
-      background: var(--card);
-      color: var(--green-2);
-      border-color: rgba(31,93,67,.18);
-    }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-secondary { background: transparent; color: var(--green-2); border-color: var(--line); }
     .microcopy { color: var(--muted); font-size: 13px; margin-top: 12px; }
-    .trust-row {
+
+    .proof-line {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
+      gap: 0;
+      margin-top: 30px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
-    .trust-pill {
-      padding: 7px 10px;
-      border-radius: var(--radius-pill);
-      background: var(--card);
-      border: 1px solid var(--line);
+    .proof-item {
+      padding: 12px 18px 12px 0;
+      margin-right: 18px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
     }
+    .proof-item b { display: block; color: var(--green-2); font-size: 16px; line-height: 1.35; }
 
-    .hero-card {
-      position: relative;
+    .visual-card {
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -38px -42px auto auto;
-      width: 120px;
-      height: 120px;
-      border-radius: var(--radius-pill);
-      background: rgba(224,130,58,.10);
-    }
-    .profile-row {
-      display: grid;
-      grid-template-columns: 86px 1fr;
-      gap: 18px;
-      align-items: start;
-      position: relative;
-    }
-    .avatar-wrap { display: grid; gap: 6px; justify-items: center; }
-    .avatar-caption { color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1; }
-    .avatar {
-      width: 86px;
-      height: 86px;
-      border-radius: var(--radius-pill);
-      object-fit: cover;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      background: var(--card);
-    }
-    .profile-row > div:last-child {
-      position: relative;
-      background: var(--green-soft);
-      border: 1px solid rgba(31,93,67,.14);
       border-radius: var(--radius);
       padding: 16px;
+      box-shadow: var(--shadow);
+      position: relative;
     }
-    .profile-row > div:last-child::before {
+    .visual-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .visual-label span:last-child { color: var(--accent); }
+    .worknote {
+      min-height: 390px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(23,74,52,.06), transparent 34%),
+        repeating-linear-gradient(0deg, transparent 0 37px, rgba(17,24,21,.06) 38px),
+        #fffdf7;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .worknote::after {
       content: "";
       position: absolute;
-      left: -9px;
-      top: 26px;
-      width: 0;
-      height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-right: 9px solid var(--green-soft);
-    }
-    .profile-name { font-size: 18px; font-weight: 700; margin: 0 0 6px; line-height: 1.5; }
-    .profile-title { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0; }
-    .mini-board {
-      position: relative;
-      margin-top: 18px;
-      display: grid;
-      gap: 10px;
-    }
-    .mini-step {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 10px;
-      align-items: start;
-      padding: 12px;
-      border-radius: var(--radius);
-      background: var(--bg-soft);
-      border: 1px solid var(--line);
-      font-size: 14px;
-    }
-    .num {
-      display: inline-grid;
-      place-items: center;
-      width: 28px;
-      height: 28px;
+      right: -40px;
+      bottom: -44px;
+      width: 150px;
+      height: 150px;
       border-radius: var(--radius-pill);
-      background: var(--accent-soft);
-      color: #7b4a22;
-      font-weight: 700;
-      font-size: 13px;
+      background: rgba(184,109,56,.10);
     }
+    .worknote-title {
+      margin: 0 0 18px;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--green-2);
+    }
+    .worknote-grid { display: grid; gap: 12px; position: relative; z-index: 1; }
+    .worknote-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(17,24,21,.10);
+    }
+    .worknote-row b { color: var(--accent); font-size: 13px; }
+    .worknote-row span { color: #2d3833; font-size: 14px; line-height: 1.7; }
+    .face-badge {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line);
+      background: var(--card);
+      z-index: 2;
+    }
+    .face-badge img { width: 48px; height: 48px; border-radius: var(--radius-pill); object-fit: cover; }
+    .visual-caption {
+      margin: 12px 2px 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .visual-caption b { color: var(--green-2); font-weight: 700; }
 
-    main > section:nth-of-type(even) { background: var(--bg-soft); }
-    .section { padding: 56px 0; }
-    .section-head { margin-bottom: 18px; }
+    .section { padding: 66px 0; border-top: 1px solid var(--line); }
+    main > section:nth-of-type(even) { background: rgba(241,240,234,.72); }
+    .section-head { margin-bottom: 26px; max-width: 790px; }
+    .label {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
     h2 {
-      margin: 0 0 8px;
-      font-size: clamp(24px, 4.2vw, 34px);
+      margin: 0 0 10px;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(26px, 4.2vw, 42px);
       line-height: 1.35;
       letter-spacing: normal;
       font-weight: 700;
     }
-    .section-lead { margin: 0; color: var(--muted); max-width: 760px; }
-    .panel {
+    .section-lead { margin: 0; color: var(--muted); max-width: 790px; }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+    .statement {
+      background: var(--green-2);
+      color: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+    }
+    .statement b { font-size: clamp(28px, 5vw, 48px); line-height: 1.25; font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif; }
+    .statement span { color: rgba(255,255,255,.78); font-size: 14px; margin-top: 20px; display: block; }
+    .issue-list {
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      padding: 24px;
+      padding: 6px 24px;
     }
-    .cards {
+    .issue-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .issue-row:last-child { border-bottom: 0; }
+    .issue-row b { color: var(--green-2); font-weight: 700; }
+    .issue-row span { color: var(--muted); font-size: 14px; }
+
+    .process {
+      display: grid;
       gap: 14px;
     }
-    .authority {
+    .process-row {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 92px 1fr;
       gap: 18px;
-      align-items: stretch;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
     }
-    .authority-main {
-      background: linear-gradient(135deg, var(--card) 0%, var(--green-soft) 100%);
-      border: 1px solid rgba(31,93,67,.20);
+    .process-num {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      color: var(--accent);
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 700;
+    }
+    .process-row h3 { margin: 0 0 4px; font-size: 20px; line-height: 1.5; }
+    .process-row p { margin: 0; color: var(--muted); }
+
+    .usecase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .case-panel {
+      background: var(--card);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 24px;
-      box-shadow: var(--shadow-sm);
     }
-    .authority-main .big {
-      font-size: clamp(34px, 7vw, 54px);
-      line-height: 1.2;
-      letter-spacing: normal;
-      font-weight: 700;
-      color: var(--green);
-      margin: 10px 0;
-    }
-    .authority-main p { margin: 0; color: #3d4d45; }
-    .authority-list {
-      display: grid;
-      gap: 12px;
-    }
-    .authority-item {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow-sm);
-    }
-    .authority-item b { display:block; margin-bottom: 6px; font-weight: 600; }
-    .authority-item span { color: var(--muted); font-size: 14px; }
-    .card {
-      position: relative;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px 18px 18px 36px;
-      box-shadow: var(--shadow-sm);
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      left: 18px;
-      top: 25px;
-      width: 8px;
-      height: 8px;
-      border-radius: var(--radius-pill);
-      background: var(--green);
-    }
-    .card b { display: block; font-size: 16px; margin-bottom: 7px; font-weight: 600; }
-    .card span { display: block; color: var(--muted); font-size: 14px; line-height: 1.75; }
-
-    .flow {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      align-items: stretch;
-      counter-reset: flow;
-    }
-    .flow-item {
-      position: relative;
-      min-height: 96px;
-      padding: 16px 12px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--line);
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 1.55;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .flow-item:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      right: -15px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--muted);
-      font-weight: 600;
-      z-index: 2;
-    }
-    .flow-item.human {
-      background: var(--green-soft);
-      border-color: rgba(31,93,67,.18);
-      color: var(--green);
-    }
-    .note {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: var(--radius);
-      background: var(--green-soft);
-      color: var(--green-2);
-      font-weight: 600;
-      font-size: 14px;
-    }
+    .case-panel h3 { margin: 0 0 12px; font-size: 20px; }
+    .case-panel ul { margin: 0; padding-left: 1.2em; color: var(--muted); }
+    .case-panel li { margin: 6px 0; }
+    .case-panel.after { border-color: rgba(23,74,52,.32); background: #fbfffb; }
 
     .pricing {
       display: grid;
-      grid-template-columns: .8fr 1fr 1.15fr;
+      grid-template-columns: .86fr 1fr 1.15fr;
       gap: 14px;
       align-items: stretch;
     }
@@ -374,89 +339,84 @@
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 22px;
       position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
     }
     .price-card.featured {
-      border: 1.5px solid var(--green);
+      border: 1px solid var(--green);
       box-shadow: var(--shadow);
-      background: var(--card);
-      padding-top: 50px;
-    }
-    .price-card.featured::before {
-      content: "本命プラン";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 9px 20px;
-      background: var(--green-soft);
-      color: var(--green-2);
-      font-size: 13px;
-      font-weight: 700;
+      background: linear-gradient(180deg, var(--green-soft), var(--card) 42%);
     }
     .tag {
       display: inline-block;
       padding: 4px 9px;
       border-radius: var(--radius-pill);
-      background: var(--green-soft);
-      color: var(--green-2);
+      background: var(--accent-soft);
+      color: #704425;
       font-size: 12px;
       font-weight: 700;
       margin-bottom: 10px;
     }
-    .featured .tag {
-      background: var(--green);
-      color: white;
-    }
+    .featured .tag { background: var(--green); color: white; }
     .price-title { margin: 0; font-weight: 700; font-size: 18px; line-height: 1.5; }
     .price { margin: 10px 0 10px; font-size: 30px; line-height: 1.2; font-weight: 700; color: var(--green); letter-spacing: normal; }
     .price small { font-size: 13px; color: var(--muted); font-weight: 600; }
     .price-card p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .split {
+    .authority {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 18px;
+      align-items: stretch;
     }
-    ul.clean { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
-    ul.clean li {
-      position: relative;
-      padding-left: 24px;
-      color: #3f4d47;
+    .authority-main {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
     }
-    ul.clean li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: .72em;
-      width: 8px;
-      height: 8px;
-      border-radius: var(--radius-pill);
-      background: var(--green);
+    .big {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(44px, 8vw, 74px);
+      line-height: 1.05;
+      letter-spacing: normal;
+      font-weight: 700;
+      color: var(--green);
+      margin: 8px 0 14px;
     }
-    .ng li::before { background: #a7b0aa; }
+    .authority-main p { margin: 0; color: #3d4d45; }
+    .authority-list { display: grid; gap: 12px; }
+    .authority-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .authority-item b { display:block; margin-bottom: 6px; font-weight: 700; }
+    .authority-item span { color: var(--muted); font-size: 14px; }
 
     .profile-panel {
       display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 18px;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
       align-items: start;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
     }
-    .profile-panel img { width: 96px; height: 96px; border-radius: var(--radius-pill); object-fit: cover; border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+    .profile-panel img { width: 100px; height: 100px; border-radius: var(--radius-pill); object-fit: cover; border: 1px solid var(--line); }
     .profile-panel p { margin: 0; color: #3f4d47; }
 
     .cta-panel {
-      background: var(--green);
+      background: var(--green-2);
       color: white;
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 34px;
       box-shadow: var(--shadow);
     }
     .cta-panel h2 { color: white; }
-    .cta-panel p { color: rgba(255,255,255,.84); margin: 0 0 18px; }
+    .cta-panel p { color: rgba(255,255,255,.82); margin: 0 0 18px; max-width: 780px; }
     .cta-panel .btn { background: #fff; color: var(--green-2); }
     .sticky-cta {
       display: none;
@@ -467,7 +427,7 @@
       z-index: 20;
       padding: 12px 16px;
       border-radius: var(--radius-pill);
-      background: rgba(31,93,67,.96);
+      background: rgba(15,51,36,.96);
       color: white;
       text-align: center;
       text-decoration: none;
@@ -481,43 +441,47 @@
       font-size: 13px;
       text-align: center;
       border-top: 1px solid var(--line);
-      background: var(--bg);
+      background: var(--paper);
     }
 
     @media (max-width: 900px) {
-      .hero-grid, .split, .authority { grid-template-columns: 1fr; }
-      .hero { padding-top: 40px; }
-      .cards { grid-template-columns: 1fr 1fr; }
-      .flow { grid-template-columns: 1fr; }
-      .flow-item { min-height: 72px; justify-content: flex-start; text-align: left; }
-      .flow-item:not(:last-child)::after { display: none; }
+      .hero-grid, .editorial-grid, .usecase, .authority { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
       .pricing { grid-template-columns: 1fr; }
+      .statement { min-height: 240px; }
     }
 
     @media (max-width: 560px) {
-      .wrap { width: min(100% - 28px, 1080px); }
-      .topbar { padding-top: 14px; }
-      .hero { padding: 40px 0; }
-      h1 { margin-top: 14px; }
+      .wrap { width: min(100% - 28px, 1100px); }
+      .topbar { padding: 14px 0; position: static; }
+      .hero { padding: 42px 0 46px; }
+      h1 { margin-top: 16px; }
       .hero-actions { display: grid; grid-template-columns: 1fr; }
       .btn { width: 100%; }
-      .hero-card { padding: 18px; }
-      .profile-row { grid-template-columns: 72px 1fr; gap: 12px; }
-      .avatar { width: 72px; height: 72px; }
-      .cards { grid-template-columns: 1fr; }
-      .panel { padding: 18px; }
-      .section { padding: 40px 0; }
-      .profile-panel { grid-template-columns: 72px 1fr; gap: 12px; }
+      .proof-line { display: grid; }
+      .proof-item { margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--line); }
+      .proof-item:last-child { border-bottom: 0; }
+      .worknote { min-height: 360px; padding: 18px; }
+      .worknote-title { font-size: 23px; padding-right: 58px; }
+      .worknote-row { grid-template-columns: 1fr; gap: 3px; }
+      .section { padding: 46px 0; }
+      .issue-list { padding: 2px 18px; }
+      .issue-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
+      .process-row { grid-template-columns: 1fr; gap: 8px; padding: 18px; }
+      .profile-panel { grid-template-columns: 72px 1fr; gap: 12px; padding: 18px; }
       .profile-panel img { width: 72px; height: 72px; }
       .price { font-size: 28px; }
+      .sticky-cta { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="topbar wrap">
-    <div class="brand">
-      <img src="assets/inajiro.png" alt="いなじろう" />
-      <span>稲田裕次郎（いなじろう）</span>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img src="assets/inajiro.png" alt="いなじろう" />
+        <span>稲田裕次郎（いなじろう）</span>
+      </div>
     </div>
   </div>
 
@@ -527,51 +491,55 @@
         <div class="eyebrow">中小企業向け / 社内AI活用の最初の一歩</div>
         <h1>AI活用を、まず1業務から社内に定着させる。</h1>
         <p class="lead">
-          AIツールを入れるだけでは、現場の仕事は変わりません。まずは日々の業務を1つ選び、<strong>AIで改善できる形に分解し、人が安全に使える運用</strong>まで落とします。問い合わせ対応は、その最初の題材として始めやすい業務です。
+          AIツールを配って終わりではなく、現場の業務を一緒に分解し、<strong>人が確認できる形でAIを組み込む</strong>ところまで伴走します。最初は、問い合わせ対応のように効果が見えやすい1業務から始めます。
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://x.com/inajiro1717">AI活用レベルを相談する</a>
+          <a class="btn btn-secondary" href="#consult">料金を見る</a>
         </div>
         <div class="microcopy">まずは情報交換から。Web制作会社・マーケ支援者の方からの紹介相談も歓迎です。</div>
-        <div class="trust-row">
-          <span class="trust-pill">MENTA銅メダル</span>
-          <span class="trust-pill">個人向けに70名以上をサポート</span>
-          <span class="trust-pill">1業務から小さく導入</span>
+        <div class="proof-line" aria-label="実績">
+          <div class="proof-item"><b>MENTA銅メダル</b>相談支援の実績</div>
+          <div class="proof-item"><b>70名以上</b>個人向けにサポート</div>
+          <div class="proof-item"><b>1業務から</b>小さくPoC</div>
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="支援内容の概要">
-        <div class="profile-row">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/inajiro.png" alt="いなじろうのアイコン" />
-            <span class="avatar-caption">いなじろう</span>
-          </div>
-          <div>
-            <p class="profile-name">AI活用は、ツール導入ではなく業務への定着が本番です。</p>
-            <p class="profile-title">1業務を題材に、AIで改善する型と、社内で使える人を増やす入口を作ります。</p>
+      <aside class="visual-card" aria-label="初回診断で見るもの">
+        <div class="visual-label"><span>初回診断のイメージ</span><span>業務改善カルテ</span></div>
+        <div class="worknote">
+          <div class="face-badge"><img src="assets/inajiro.png" alt="いなじろう" /></div>
+          <p class="worknote-title">まず、1業務をカルテにします。</p>
+          <div class="worknote-grid">
+            <div class="worknote-row"><b>現状</b><span>問い合わせ対応に時間がかかり、担当者ごとに判断が分かれる。</span></div>
+            <div class="worknote-row"><b>分解</b><span>分類、確認事項、返信案、最終送信に分ける。</span></div>
+            <div class="worknote-row"><b>AI</b><span>下書きと不足情報チェックまで。送信判断は人が持つ。</span></div>
+            <div class="worknote-row"><b>残す型</b><span>確認ルール、対応ログ、次に広げる業務候補。</span></div>
           </div>
         </div>
-        <div class="mini-board">
-          <div class="mini-step"><span class="num">1</span><span>現状の業務とAI活用レベルを整理する</span></div>
-          <div class="mini-step"><span class="num">2</span><span>効果が見えやすい1業務を選ぶ</span></div>
-          <div class="mini-step"><span class="num">3</span><span>人が確認できる形で小さく試し、型を残す</span></div>
-        </div>
+        <p class="visual-caption"><b>初回相談では、この粒度で1業務を整理します。</b> 実際の業務資料や画面を見ながら、AIに任せる範囲と人が見る範囲を切り分けます。</p>
       </aside>
     </div>
   </header>
 
   <main>
     <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>AIを入れても、現場で使われなければ意味がありません。</h2>
-          <p class="section-lead">多くの会社で起きている問題は、AIツールがないことではなく、日々の業務のどこにどう組み込むかが決まっていないことです。</p>
+      <div class="wrap editorial-grid">
+        <div class="statement">
+          <b>AIを入れたのに、仕事は変わっていない。</b>
+          <span>この状態を避けるために、ツール導入ではなく「業務への組み込み」から見ます。</span>
         </div>
-        <div class="cards">
-          <div class="card"><b>触って終わる</b><span>ChatGPTを試しても、実際の業務フローに入らず、個人の試行錯誤で止まります。</span></div>
-          <div class="card"><b>研修で終わる</b><span>便利そうとは感じても、翌日から何を変えるかが決まらず、現場に残りません。</span></div>
-          <div class="card"><b>一部の人だけ使う</b><span>AIに慣れた人だけが効率化し、チーム全体の生産性には広がりません。</span></div>
-          <div class="card"><b>成果が見えない</b><span>時間短縮・品質安定・対応漏れ削減など、業務上の変化として測れないまま終わります。</span></div>
+        <div>
+          <div class="section-head">
+            <div class="label">Problem</div>
+            <h2>問題は、AIツール不足ではありません。</h2>
+            <p class="section-lead">多くの会社で止まっているのは、AIそのものではなく、日々の業務のどこにどう差し込むかです。</p>
+          </div>
+          <div class="issue-list">
+            <div class="issue-row"><b>触って終わる</b><span>ChatGPTを試しても、実際の業務フローに入らず、個人の試行錯誤で止まる。</span></div>
+            <div class="issue-row"><b>研修で終わる</b><span>便利そうとは感じても、翌日から何を変えるかが決まらない。</span></div>
+            <div class="issue-row"><b>一部の人だけ使う</b><span>AIに慣れた人だけが効率化し、チーム全体には広がらない。</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -579,44 +547,53 @@
     <section class="section">
       <div class="wrap">
         <div class="section-head">
-          <h2>目指すのは、AIを使える人と改善の型が社内に残ること。</h2>
+          <div class="label">Goal</div>
+          <h2>社内に、AIを使える人と改善の型を残す。</h2>
           <p class="section-lead">外から仕組みを作って終わりではなく、1つの業務改善を通じて「AIで業務をどう分解し、どこを人が確認するか」という感覚を社内に残します。</p>
         </div>
-        <div class="cards">
-          <div class="card"><b>業務を分解する</b><span>いきなり自動化せず、判断・作業・確認・記録に分けて、AIが効く場所を見つけます。</span></div>
-          <div class="card"><b>人が見る範囲を残す</b><span>完全自動化ではなく、人間確認を前提にして、安心して使える運用にします。</span></div>
-          <div class="card"><b>次に広げられる</b><span>1業務で作った型を、別の問い合わせ・営業・事務作業にも広げやすくします。</span></div>
-          <div class="card"><b>利益につなげる</b><span>削減した時間を、提案・顧客対応・改善活動に回せる状態を目指します。</span></div>
+        <div class="process">
+          <div class="process-row">
+            <div class="process-num">01</div>
+            <div><h3>業務を分解する</h3><p>判断・作業・確認・記録に分けて、AIが効く場所と人が見るべき場所を切り分けます。</p></div>
+          </div>
+          <div class="process-row">
+            <div class="process-num">02</div>
+            <div><h3>1業務で小さく試す</h3><p>全社DXではなく、効果が見えやすく、失敗しても戻せる業務からPoCします。</p></div>
+          </div>
+          <div class="process-row">
+            <div class="process-num">03</div>
+            <div><h3>次に広げられる型を残す</h3><p>手順・確認ルール・改善ログを残し、別の業務にも展開できる状態を目指します。</p></div>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap panel">
-        <div class="section-head">
-          <h2>進め方は、診断 → 1業務選定 → 小さなPoCです。</h2>
-          <p class="section-lead">全社DXの大きな話から始めず、AI活用レベルを見たうえで、効果が見えやすい1業務から始めます。</p>
-        </div>
-        <div class="flow" aria-label="AI活用定着の流れ">
-          <div class="flow-item">AI活用レベル<br>診断</div>
-          <div class="flow-item">改善テーマ<br>1業務を選定</div>
-          <div class="flow-item human">PoCと運用<br>社内に型を残す</div>
-        </div>
-        <div class="note">AIができることを見せつつ、現場が使える範囲に落とす。そこを最初のゴールにします。</div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
         <div class="section-head">
+          <div class="label">First Use Case</div>
           <h2>最初の題材として、問い合わせ対応は相性がいい。</h2>
-          <p class="section-lead">問い合わせ対応は、AI活用の可能性を実務で見せやすい入口です。ただし目的は、問い合わせ対応だけを便利にすることではありません。社内でAI活用を広げるための最初の成功体験を作ることです。</p>
+          <p class="section-lead">問い合わせ対応は、AI活用の可能性を実務で見せやすい入口です。ただし目的は、問い合わせ対応だけを便利にすることではなく、社内でAI活用を広げるための最初の成功体験を作ることです。</p>
         </div>
-        <div class="cards">
-          <div class="card"><b>Before/Afterが見える</b><span>初動速度・確認漏れ・返信品質など、改善前後の違いが分かりやすい業務です。</span></div>
-          <div class="card"><b>小さく始めやすい</b><span>Googleフォーム、スプレッドシート、Gmailなど、既存の道具で試しやすい形にできます。</span></div>
-          <div class="card"><b>人間確認と相性がいい</b><span>AIが分類・不足情報チェック・返信案作成を行い、最後は担当者が確認できます。</span></div>
-          <div class="card"><b>紹介しやすい</b><span>Web制作後の運用改善やマーケ支援の追加提案として、顧客に説明しやすいテーマです。</span></div>
+        <div class="usecase">
+          <div class="case-panel">
+            <h3>よくある現状</h3>
+            <ul>
+              <li>フォームやメールの内容確認に時間がかかる</li>
+              <li>担当者ごとに返信品質がバラつく</li>
+              <li>過去返信やFAQが次の対応に活きていない</li>
+              <li>初動が遅れて商談化の前に温度が下がる</li>
+            </ul>
+          </div>
+          <div class="case-panel after">
+            <h3>最初に作る状態</h3>
+            <ul>
+              <li>AIが分類・不足情報・返信案を下書きする</li>
+              <li>担当者が確認し、人間が最終送信する</li>
+              <li>対応履歴を残し、次の改善に使う</li>
+              <li>「AIを業務に入れる」感覚を社内に残す</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -624,6 +601,7 @@
     <section class="section" id="consult">
       <div class="wrap">
         <div class="section-head">
+          <div class="label">Offer</div>
           <h2>まずは小さく整理し、必要な会社だけ実装へ進みます。</h2>
           <p class="section-lead">いきなり大きな導入を前提にせず、現状のAI活用レベルと改善候補を見ます。合いそうな場合だけ、診断・実装へ進む流れです。</p>
         </div>
@@ -653,19 +631,20 @@
     <section class="section">
       <div class="wrap authority">
         <div class="authority-main">
-          <div class="eyebrow">数字で見える相談支援実績</div>
+          <div class="label">Proof</div>
           <div class="big">70名以上</div>
           <p>MENTAで個人向けにAI活用・開発学習・業務整理の相談をサポート。相手の状況を聞き、次にやることを具体化する支援を続けてきました。</p>
         </div>
         <div class="authority-list">
           <div class="authority-item"><b>MENTA 銅メダル獲得</b><span>相談支援の実績がプラットフォーム上でも見える形になっています。</span></div>
           <div class="authority-item"><b>Webアプリケーション開発の実務経験</b><span>業務を分解し、実際に使う画面・手順・運用へ落とす前提で支援します。</span></div>
+          <div class="authority-item"><b>AIを業務に入れる順番を整理</b><span>ツール紹介ではなく、現場で使える範囲・危ない範囲・次の一手まで切り分けます。</span></div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap panel profile-panel">
+      <div class="wrap profile-panel">
         <img src="assets/inajiro.png" alt="いなじろう" />
         <div>
           <h2>担当者</h2>
