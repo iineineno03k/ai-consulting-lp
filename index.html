@@ -121,17 +121,16 @@
     .btn-primary { background: var(--green); color: white; }
     .btn-secondary { background: rgba(255,254,249,.72); color: var(--green-2); border-color: var(--line-dark); }
     .microcopy { margin-top: 12px; color: var(--muted); font-size: 13px; }
-    .proof-strip {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line-dark);
-      border-bottom: 1px solid var(--line-dark);
+    /* ページロード時に一度だけの段階表示。reduced-motionでは即表示 */
+    [data-reveal] { --d: 0ms; }
+    @media (prefers-reduced-motion: no-preference) {
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: reveal .72s var(--d) cubic-bezier(.22,.61,.36,1) both;
+      }
+      @keyframes reveal { to { opacity: 1; transform: none; } }
     }
-    .proof-strip div { padding: 13px 14px 13px 0; border-right: 1px solid var(--line); }
-    .proof-strip div:last-child { border-right: 0; }
-    .proof-strip b { display: block; color: var(--green-2); font-size: 18px; line-height: 1.25; }
-    .proof-strip span { color: var(--muted); font-size: 12px; font-weight: 600; }
 
     .diagnosis-sheet {
       position: relative;
@@ -322,9 +321,6 @@
       .hero { padding-top: 38px; }
       .process, .pricing { grid-template-columns: 1fr; }
       .intro-consult { grid-template-columns: 1fr; gap: 6px; }
-      .proof-strip { grid-template-columns: 1fr; }
-      .proof-strip div { border-right: 0; border-bottom: 1px solid var(--line); }
-      .proof-strip div:last-child { border-bottom: 0; }
     }
     @media (max-width: 560px) {
       .wrap { width: min(100% - 28px, 1120px); }
@@ -339,7 +335,6 @@
       .actions { order: 4; }
       .diagnosis-sheet { order: 5; margin-top: 8px; }
       .microcopy { order: 6; }
-      .proof-strip { order: 7; }
       .actions { display: grid; grid-template-columns: 1fr; }
       .btn { width: 100%; }
       .sheet-body { padding: 16px; }
@@ -371,31 +366,30 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="kicker">中小企業向け / Claude Code業務活用</div>
-          <h1>Claude Codeを、社内の実務で使える武器にする。</h1>
-          <p class="lead">AIに質問はできる。でも、資料を直す、LPを更新する、手順を整えるところは、まだ人が抱えている。Claude Codeを使い、<strong>ファイルを読ませ、直させ、差分を人が確認する</strong>流れを作ります。</p>
-          <div class="actions">
+          <div class="kicker" data-reveal style="--d:0ms">中小企業向け / Claude Code業務活用</div>
+          <h1 data-reveal style="--d:90ms">Claude Codeを、社内の実務で使える武器にする。</h1>
+          <p class="lead" data-reveal style="--d:180ms">AIに質問はできる。でも、資料を直す、LPを更新する、手順を整えるところは、まだ人が抱えている。Claude Codeを使い、<strong>ファイルを読ませ、直させ、差分を人が確認する</strong>流れを作ります。</p>
+          <div class="actions" data-reveal style="--d:270ms">
             <a class="btn btn-primary" href="https://x.com/inajiro1717">Claude Code活用を相談する</a>
             <a class="btn btn-secondary" href="#consult">メニューを見る</a>
           </div>
-          <p class="microcopy">まずは情報交換から。Web制作会社・マーケ支援者の方からの紹介相談も歓迎です。</p>
+          <p class="microcopy" data-reveal style="--d:340ms">まずは情報交換から。Web制作会社・マーケ支援者の方からの紹介相談も歓迎です。</p>
         </div>
 
-        <aside class="diagnosis-sheet" aria-label="AI活用の最初の1業務">
-          <div class="sheet-top"><span class="sheet-title">AIエージェント導入メモ</span><span class="sheet-id">first step</span></div>
+        <aside class="diagnosis-sheet" aria-label="最初の1業務のビフォーアフター" data-reveal style="--d:400ms">
+          <div class="sheet-top"><span class="sheet-title">最初の1業務メモ</span><span class="sheet-id">before → after</span></div>
           <div class="sheet-body">
             <div class="sheet-headline">
-              <p>まず、AIに作業を任せる感覚を作る。</p>
+              <p>「これ、AIに任せられる」を最初に作る。</p>
               <img src="assets/inajiro.png" alt="いなじろう" />
             </div>
             <div class="sheet-table">
-              <div class="sheet-row"><b>入口</b><span>ファイル・文章・手順があり、人が確認できる業務を選ぶ。</span></div>
-              <div class="sheet-row"><b>体験</b><span>Claude Codeが読み、直し、差分を作る流れを体験する。</span></div>
-              <div class="sheet-row"><b>安心</b><span>最後の判断は人が持つ。だから安全に業務へ入れられる。</span></div>
-              <div class="sheet-row"><b>次</b><span>Skillsやルール化で、次の業務にも広げる。</span></div>
+              <div class="sheet-row"><b>いま</b><span>議事録・資料・手順の整理を、毎回人が一から抱えている。</span></div>
+              <div class="sheet-row"><b>変わる</b><span>Claude Codeが下書き・修正・差分まで出し、人は確認だけ。</span></div>
+              <div class="sheet-row"><b>残る</b><span>使った手順がそのまま社内に残り、次の業務にも回せる。</span></div>
             </div>
           </div>
-          <div class="sheet-stamp">エージェント実務化</div>
+          <div class="sheet-stamp">最後は人が確認</div>
         </aside>
       </div>
     </section>
