@@ -339,7 +339,7 @@
 
     .plans {
       display: grid;
-      grid-template-columns: .9fr 1fr 1.1fr;
+      grid-template-columns: .86fr 1fr 1.04fr 1.14fr;
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
@@ -352,7 +352,7 @@
       flex-direction: column;
     }
     .plan small { color: var(--red); font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
-    .plan h3 { margin: 18px 0 10px; font-size: 25px; line-height: 1.35; }
+    .plan h3 { margin: 18px 0 10px; font-size: 24px; line-height: 1.35; }
     .price { margin: 0 0 22px; color: white; font-size: 28px; font-weight: 900; }
     .plan p { margin: 0; color: var(--text); font-size: 14px; }
     .plan ul { margin: 24px 0 0; padding: 0; list-style: none; color: var(--text); font-size: 14px; }
@@ -378,6 +378,8 @@
     }
     .profile h3 { margin: 0 0 14px; font-size: 28px; }
     .profile p { margin: 0; color: var(--text); }
+    .profile a { color: #fff; font-weight: 800; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .profile .profile-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
 
     .final-cta {
       min-height: 56svh;
@@ -581,6 +583,13 @@
             <p>現行フロー、必要データ、リスク、想定削減時間を整理し、実装に進むべきか判断します。</p>
             <ul><li>90分ヒアリング</li><li>簡易レポート</li><li>実装可否判断</li></ul>
           </article>
+          <article class="plan">
+            <small>Workshop</small>
+            <h3>Claude Code業務活用ワークショップ</h3>
+            <p class="price">15万円（税込）</p>
+            <p>社内の理解を揃えたい会社向け。Claude Codeを実務で安全に使うための基本概念と運用ルールを扱います。</p>
+            <ul><li>基本概念</li><li>コマンド/差分確認</li><li>Skills/ルール化</li><li>自分の業務で試す設計</li></ul>
+          </article>
           <article class="plan plan-featured">
             <small>Execution</small>
             <h3>問い合わせ対応AI半自動化プログラム</h3>
@@ -606,6 +615,7 @@
           <div>
             <h3>稲田裕次郎（いなじろう）</h3>
             <p>Webアプリケーション開発の実務経験をもとに、AIを使った情報整理・手順化・半自動化を検証しながら、中小企業向けに「1業務を題材にした安全なAI活用」を支援しています。</p>
+            <p class="profile-note">個人向け相談では <a href="https://menta.work/user/169353" target="_blank" rel="noopener">MENTA</a> で70名以上をサポートし、<a href="https://intercom.help/mentajp/ja/articles/3108334-%E3%83%90%E3%83%83%E3%82%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank" rel="noopener">全体上位5%のブロンズバッジ</a>を獲得しています。B2B実績としてではなく、相談支援・課題整理の経験として記載しています。</p>
           </div>
         </div>
       </div>
