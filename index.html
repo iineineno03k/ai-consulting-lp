@@ -332,7 +332,8 @@
     .plan-featured small { color: var(--red-dark); }
     .plan h3 { margin: 16px 0 0; font-size: 23px; line-height: 1.35; }
     .price { margin: 18px 0 0 !important; color: #fff !important; font-size: 23px; font-weight: 900; }
-    .plan-featured h3 { color: var(--ink); }
+    .plan-featured, .plan-featured h3, .plan-featured p, .plan-featured li { color: var(--ink) !important; }
+    .plan-featured .plan-title { color: var(--ink) !important; display: block; }
     .plan-featured .price { color: var(--red-dark) !important; }
     .plan p:not(.price) { margin: 16px 0 0; font-size: 14px; line-height: 1.75; }
     .plan ul { margin: auto 0 0; padding: 22px 0 0; list-style: none; display: grid; gap: 8px; font-size: 13px; }
@@ -605,7 +606,7 @@
           </article>
           <article class="plan plan-featured">
             <small>Execution</small>
-            <h3>1業務AI定着支援</h3>
+            <h3 class="plan-title" style="color:#17202a !important;">1業務AI定着支援</h3>
             <p class="price">標準35万円（税込）</p>
             <p>1つの繰り返し業務を対象に、下書き、分類、確認、記録の流れを整え、現場で試せる形まで作ります。問い合わせ対応は代表例です。</p>
             <ul>
