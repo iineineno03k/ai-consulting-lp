@@ -306,6 +306,12 @@
     .plan.featured h3, .plan.featured p, .plan.featured li { color: var(--ink) !important; }
     .price { margin: 18px 0 0 !important; color: #fff !important; font-size: 24px; font-weight: 800; }
     .plan.featured .price { color: var(--red-dark) !important; }
+    .price .old-price { color: rgba(255,255,255,.62); text-decoration: line-through; text-decoration-thickness: 2px; font-size: 16px; margin-right: 8px; }
+    .price .free-price { color: #fff; }
+    .plan.featured .price .old-price { color: rgba(21,27,34,.5); }
+    .plan.featured .price .free-price { color: var(--red-dark); }
+    .limited-note { display: inline-flex; margin-top: 10px; padding: 4px 9px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: rgba(255,255,255,.82); font-size: 12px; font-weight: 800; line-height: 1.3; }
+    .plan.featured .limited-note { border-color: var(--line); color: var(--red-dark); }
     .plan-desc { margin: 16px 0 0; font-size: 14px; line-height: 1.85; }
     .plan ul { margin: auto 0 0; padding: 26px 0 0; list-style: none; display: grid; gap: 9px; font-size: 13px; }
     .plan li { display: grid; grid-template-columns: 14px 1fr; gap: 9px; }
@@ -577,15 +583,17 @@
           <article class="plan">
             <small>Entry</small>
             <h3>30分相談</h3>
-            <p class="price">5,000円（税込）</p>
+            <p class="price"><span class="old-price">5,000円</span><span class="free-price">無料</span></p>
+            <span class="limited-note">期間限定・今なら無料</span>
             <p class="plan-desc">まず課題を聞き、AI、業務自動化、問い合わせ導線、Web開発など、どこに改善余地があるか軽く壁打ちします。</p>
             <ul>
               <li>30分オンライン</li>
+              <li>期間限定で無料</li>
               <li>相談内容は曖昧でOK</li>
               <li>次に見るべき箇所を整理</li>
             </ul>
           </article>
-          <article class="plan featured">
+          <article class="plan">
             <small>Diagnosis</small>
             <h3>改善診断</h3>
             <p class="price">50,000円（税込）</p>
