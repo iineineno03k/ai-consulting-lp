@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI活用・事業改善エンジニア｜AIと小さな開発で事業の詰まりを改善</title>
-  <meta name="description" content="AI研修・AI導入支援・業務自動化・スプレッドシート改善・問い合わせ導線改善・小規模Web開発まで。AIと小さな開発で、事業まわりの困りごとを整理し、必要な改善まで対応します。" />
+  <meta name="description" content="AIエージェント活用、営業ページ・フォーム・管理表づくりまで。AIと小さな開発で、事業まわりの困りごとを整理し、必要な改善まで対応します。" />
   <meta property="og:title" content="AI活用・事業改善エンジニア｜AIと小さな開発で事業の詰まりを改善" />
-  <meta property="og:description" content="AI研修・業務改善・問い合わせ導線・小規模開発まで、今の課題に合わせて必要な改善を切り分けます。" />
+  <meta property="og:description" content="AIエージェント活用、営業ページ・フォーム・管理表づくりまで、今の課題に合わせて必要な改善を切り分けます。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://iineineno03k.github.io/ai-consulting-lp/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -301,27 +301,15 @@
       border: 1px solid var(--line);
       border-radius: 16px;
     }
-    /* 相談→診断→実行支援の導線：カード間の矢印 */
-    .plan:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      top: 50%;
-      right: -25px;
-      transform: translateY(-50%);
-      color: var(--line-strong);
-      font-size: 22px;
-      font-weight: 700;
-    }
     /* 最初の入口はほんのり色づけて「ここから」を示す（推し売りではなく起点） */
     .plan.entry { background: #fff5ef; border-color: rgba(167,42,58,.3); }
     .plan .step { display: flex; align-items: baseline; gap: 9px; color: var(--red); font-size: 12px; font-weight: 820; letter-spacing: .16em; text-transform: uppercase; }
     .plan .step b { font-size: 16px; font-weight: 900; color: var(--ink); letter-spacing: .04em; }
     .plan .here { align-self: flex-start; margin-top: 14px; padding: 5px 12px; background: var(--red); color: #fff; border-radius: 999px; font-size: 12px; font-weight: 820; letter-spacing: .04em; }
     .plan h3 { margin: 14px 0 0; font-size: 25px; line-height: 1.3; color: var(--ink); }
-    .price { margin: 16px 0 0 !important; color: var(--ink) !important; font-size: 27px; font-weight: 850; }
+    .price { margin: 16px 0 0 !important; color: var(--ink) !important; font-size: 27px; font-weight: 850; line-height: 1.25; overflow-wrap: anywhere; }
     .price .old-price { color: var(--ink-2); opacity: .58; text-decoration: line-through; text-decoration-thickness: 2px; font-size: 17px; margin-right: 9px; }
     .price .free-price { color: var(--red); }
-    .limited-note { display: inline-flex; margin-top: 12px; padding: 5px 11px; border: 1px solid rgba(167,42,58,.4); border-radius: 999px; color: var(--red-dark); font-size: 12px; font-weight: 800; line-height: 1.3; }
     .plan-desc { margin: 16px 0 0; font-size: 15px; line-height: 1.85; color: var(--ink-2); }
     .plan ul { margin: auto 0 0; padding: 22px 0 0; list-style: none; display: grid; gap: 11px; font-size: 14px; }
     .plan li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; color: var(--ink-2); line-height: 1.55; font-weight: 600; }
@@ -408,6 +396,7 @@
       .section-copy { font-size: 16px; line-height: 1.9; }
       .plans, .process, .scope-grid { grid-template-columns: 1fr; }
       .plan { min-height: auto; }
+      .price { font-size: 24px; }
       .profile-panel { grid-template-columns: 1fr; padding: 24px; }
       .profile-panel img { width: 140px; }
       .footer-inner { flex-direction: column; align-items: flex-start; justify-content: center; padding: 20px 0; }
@@ -437,16 +426,16 @@
       <div class="wrap hero-inner">
         <div>
           <h1 id="hero-title">AIと小さな開発で、<br><span class="h1-line"><span class="marker">事業の詰まりを</span></span><br>改善します。</h1>
-          <p class="hero-lead">AI研修、業務自動化、問い合わせ導線、小規模Web開発まで。<br class="mobile-only">今の課題に合わせて、AIで足りる部分と小さく作る部分を切り分けます。</p>
+          <p class="hero-lead">AIエージェント活用の相談から、営業ページ・フォーム・管理表などの小さな改善まで。<br class="mobile-only">こちらで作って整える支援と、社内でAIエージェントを使えるようにする支援の両方に対応します。</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">30分相談フォームを開く</a>
             <a class="btn btn-secondary" href="#plans">料金の目安を見る</a>
           </div>
-          <p class="hero-note">いきなり大きな開発や全社導入にしません。まずは、どこを直すと効果が出そうかを小さく整理します。</p>
+          <p class="hero-note">いきなり大きな開発や全社導入にしません。まずは、今の困りごとを聞いて、どちらの進め方が合うかを小さく整理します。</p>
           <div class="micro-proof" aria-label="相談できる範囲">
-            <div><span>AI</span><strong>研修・導入・業務活用</strong></div>
-            <div><span>Operation</span><strong>GAS・Excel・業務整理</strong></div>
-            <div><span>Web</span><strong>問い合わせ導線・小規模開発</strong></div>
+            <div><span>AI Agent</span><strong>AIエージェント活用</strong></div>
+            <div><span>Build</span><strong>営業ページ・フォーム</strong></div>
+            <div><span>Operation</span><strong>管理表・業務ツール</strong></div>
           </div>
         </div>
 
@@ -458,14 +447,14 @@
           <div class="sheet-grid">
             <div class="sheet-row">
               <p class="sheet-label">困りごと</p>
-              <p class="sheet-text">集客、問い合わせ対応、転記・集計、社内運用、業務ツールなど、今止まっている箇所</p>
+              <p class="sheet-text">営業ページ、フォーム、管理表、AIエージェント活用、業務ツールなど、今止まっている箇所</p>
             </div>
             <div class="sheet-row">
               <p class="sheet-label">切り分け</p>
               <ul class="sheet-list">
-                <li>AIで試せる部分</li>
-                <li>スプレッドシートやGASで軽くできる部分</li>
-                <li>小さなWeb開発が必要な部分</li>
+                <li>AIエージェントを使えるようにする部分</li>
+                <li>こちらで作って整える部分</li>
+                <li>小さな業務ツールが必要な部分</li>
                 <li>人が確認すべき判断・責任の場所</li>
               </ul>
             </div>
@@ -484,20 +473,20 @@
           <p class="section-label">First contact</p>
           <div>
             <h2 id="consult-title">相談内容は、まだ曖昧で大丈夫です。</h2>
-            <p class="section-copy">「AIを使いたい」「スプレッドシート管理を楽にしたい」「問い合わせが増えない」「小さいツールを作りたい」など、入口はばらばらで構いません。まずは課題を聞いて、どの手段が一番小さく効きそうかを一緒に切り分けます。</p>
+            <p class="section-copy">「AIエージェントを使いたい」「営業ページを整えたい」「フォームや管理表が使いにくい」「小さい業務ツールを作りたい」など、入口はばらばらで構いません。まずは課題を聞いて、どの進め方が一番小さく効きそうかを一緒に切り分けます。</p>
           </div>
         </div>
         <div class="situations">
           <div class="situation-main">
             <h3>最初に売り込むのは、ツールでも開発でもありません。</h3>
-            <p>AI研修、GAS、LP改善、Web開発のどれをやるかは、困りごとを見てから決めます。大きな提案の前に、まず「小さく直せる箇所」を探します。</p>
+            <p>AIエージェント活用支援にするか、営業ページ・フォーム・管理表などをこちらで作って整えるかは、困りごとを見てから決めます。大きな提案の前に、まず「小さく直せる箇所」を探します。</p>
           </div>
           <ul class="situation-list">
-            <li>AIを使いたいが、何から業務に入れればいいか分からない</li>
-            <li>Excelやスプレッドシートの管理が属人化している</li>
-            <li>問い合わせフォーム、CTA、返信フローが整理されていない</li>
-            <li>手作業の転記・集計・確認に時間がかかっている</li>
-            <li>外注開発する前に、何を頼むべきか整理したい</li>
+            <li>AIエージェントを業務や小さな制作に使えるようにしたい</li>
+            <li>スプレッドシートや管理表が見づらく、確認漏れが出やすい</li>
+            <li>問い合わせ・予約フォームや相談受付の流れを整えたい</li>
+            <li>営業ページやサービス説明ページを整えたい</li>
+            <li>社内で使う小さな業務ツールを作るべきか相談したい</li>
           </ul>
         </div>
       </div>
@@ -508,39 +497,39 @@
         <div class="section-head">
           <p class="section-label">Scope</p>
           <div>
-            <h2 id="scope-title">困りごとに合わせて、必要な手段を切り分けます。</h2>
-            <p class="section-copy">専門商品を最初から決め打ちするのではなく、今の課題に合わせて改善手段を選びます。AI、業務整理、スプレッドシート、問い合わせ導線、小規模開発の中から、必要な範囲だけ小さく進めます。</p>
+            <h2 id="scope-title">困りごとに合わせて、2つの進め方を切り分けます。</h2>
+            <p class="section-copy">専門商品を最初から決め打ちするのではなく、今の課題に合わせて進め方を選びます。AIエージェントを使えるようにするのか、こちらで必要なものを作って整えるのかを切り分け、必要な範囲だけ小さく進めます。</p>
           </div>
         </div>
         <div class="scope-grid">
           <article class="scope-card">
-            <h3>AIを業務に使う</h3>
-            <p>ChatGPTの使い方だけで終わらせず、自社業務にどう入れるかを整理します。</p>
+            <h3>AIエージェントを使えるようにする</h3>
+            <p>相談だけで終わらせず、業務改善や小さな制作にAIエージェントを使える形へ整えます。</p>
             <ul>
-              <li>AI研修 / ワークショップ</li>
-              <li>AI導入支援</li>
-              <li>プロンプト・手順整備</li>
+              <li>Claude CodeなどのAIエージェント活用</li>
+              <li>AIエージェントでできること / 任せないことの整理</li>
+              <li>小さな制作・改善への使い方整理</li>
               <li>人が確認するルール作り</li>
             </ul>
           </article>
           <article class="scope-card">
-            <h3>手作業を減らす</h3>
-            <p>転記、集計、確認、管理表の更新など、毎回時間を取られる作業を軽くします。</p>
+            <h3>作って整える</h3>
+            <p>営業ページ、フォーム、管理表、相談受付の流れなど、今必要なものを小さく整えます。</p>
             <ul>
-              <li>GAS / スプレッドシート改善</li>
-              <li>Excel業務整理</li>
-              <li>転記・集計・確認作業の削減</li>
-              <li>簡単な業務ツール開発</li>
+              <li>営業ページ・サービス説明ページ</li>
+              <li>問い合わせ・予約フォーム</li>
+              <li>スプレッドシートや管理表の整理</li>
+              <li>相談受付から初回対応までの流れ作り</li>
             </ul>
           </article>
           <article class="scope-card">
-            <h3>問い合わせまでの流れを整える</h3>
-            <p>本格的なLP制作ではなく、既存ページや問い合わせ導線の詰まりを見直します。</p>
+            <h3>必要なら小さく作る</h3>
+            <p>小さな改善では足りない場合だけ、社内で使う業務ツールや少しまとまった仕組みを作ります。</p>
             <ul>
-              <li>既存LPの文言整理</li>
-              <li>CTA / フォーム改善</li>
-              <li>問い合わせ後の対応フロー整理</li>
-              <li>簡易LP・小規模Web開発</li>
+              <li>小さな業務ツール</li>
+              <li>顧客・案件管理の簡易ツール</li>
+              <li>相談受付から対応までの流れ</li>
+              <li>内容に応じた個別見積もり</li>
             </ul>
           </article>
         </div>
@@ -552,30 +541,30 @@
         <div class="section-head">
           <p class="section-label">How it works</p>
           <div>
-            <h2 id="process-title">相談から、小改善・実行支援へ進めます。</h2>
-            <p class="section-copy">最初から高額な開発に進む必要はありません。30分相談や改善診断で整理し、必要なら5万〜15万円程度の小改善、または10万〜50万円目安の実行支援へ進めます。</p>
+            <h2 id="process-title">相談から、合う進め方へ分けます。</h2>
+            <p class="section-copy">最初から高額な開発や長期契約に進む必要はありません。30分相談で整理し、AIエージェント活用支援が合うか、作って整える支援が合うかを切り分けます。</p>
           </div>
         </div>
         <div class="process">
           <article class="process-step">
             <small>01</small>
             <h3>困りごとを聞く</h3>
-            <p>AI、業務、問い合わせ導線、Web開発など、今気になっていることをそのまま聞きます。</p>
+            <p>AIエージェント、営業ページ、フォーム、管理表、業務ツールなど、今気になっていることをそのまま聞きます。</p>
           </article>
           <article class="process-step">
             <small>02</small>
             <h3>手段を切り分ける</h3>
-            <p>AIで足りるか、GASで足りるか、小さな開発が必要かを整理します。</p>
+            <p>AIエージェントを使えるようにするべきか、こちらで作って整えるべきかを整理します。</p>
           </article>
           <article class="process-step">
             <small>03</small>
             <h3>小さく直す</h3>
-            <p>文言改善、フォーム改善、管理表整理、簡単な自動化など、効果が出やすい箇所から着手します。</p>
+            <p>営業ページ、フォーム、管理表、相談受付の流れなど、効果が出やすい箇所から小さく整えます。</p>
           </article>
           <article class="process-step">
             <small>04</small>
             <h3>必要なら作る</h3>
-            <p>小改善では足りない場合だけ、ワークショップ、業務ツール、小規模Web開発へ進めます。</p>
+            <p>小さな改善では足りない場合だけ、定着支援や小規模な仕組みづくりへ進めます。</p>
           </article>
         </div>
       </div>
@@ -587,17 +576,16 @@
           <p class="section-label">Plans</p>
           <div>
             <h2 id="plans-title">相談から、必要な分だけ。</h2>
-            <p class="section-copy">いきなり高額な開発には進みません。相談 → 診断 → 実行支援の順で、必要になった分だけ進めます。内容に応じて、AI研修、GAS改善、問い合わせ導線改善、小規模開発などに切り分けます。</p>
+            <p class="section-copy">いきなり高額な開発には進みません。まず30分相談で課題を棚卸しし、必要になった分だけ進めます。AIエージェント活用支援と、作って整える支援の2つに分けて考えます。</p>
           </div>
         </div>
         <div class="plans">
           <article class="plan entry">
             <p class="step"><b>STEP 01</b> 相談</p>
             <h3>30分相談</h3>
-            <p class="price"><span class="old-price">5,000円</span><span class="free-price">無料</span></p>
-            <span class="limited-note">期間限定・今なら無料</span>
+            <p class="price"><span class="free-price">無料</span></p>
             <span class="here">まずここから</span>
-            <p class="plan-desc">まず課題を聞き、AI、業務自動化、問い合わせ導線、Web開発など、どこに改善余地があるか軽く壁打ちします。</p>
+            <p class="plan-desc">まず課題を聞き、AIエージェント活用支援が合うか、こちらで作って整える支援が合うかを切り分けます。</p>
             <ul>
               <li>30分オンライン</li>
               <li>相談内容は曖昧でOK</li>
@@ -605,31 +593,32 @@
             </ul>
           </article>
           <article class="plan">
-            <p class="step"><b>STEP 02</b> 診断</p>
-            <h3>改善診断</h3>
-            <p class="price">50,000円（税込）</p>
-            <p class="plan-desc">現状を整理し、どの改善手段が最適かを切り分けます。実行する場合の改善案、優先順位、概算見積もりを簡易レポートにまとめます。</p>
+            <p class="step"><b>PLAN A</b> AIエージェント活用支援</p>
+            <h3>使えるようにする</h3>
+            <p class="price">スポット5万円〜 / 月5万円〜</p>
+            <p class="plan-desc">Claude CodeなどのAIエージェントを、業務改善や小さな制作に使える形へ整えます。スポットの整理・研修から、継続伴走まで内容に応じて提案します。</p>
             <ul>
-              <li>現状ヒアリング</li>
-              <li>改善余地の洗い出し</li>
-              <li>優先順位と概算見積もり</li>
+              <li>AI活用整理・診断 5万円</li>
+              <li>ミニ研修 10万〜20万円</li>
+              <li>定着支援 20万円〜（内容に応じて個別見積もり）</li>
+              <li>伴走 月5万〜15万円</li>
             </ul>
           </article>
           <article class="plan">
-            <p class="step"><b>STEP 03</b> 実行支援</p>
-            <h3>実行支援</h3>
-            <p class="price">個別見積もり</p>
-            <p class="plan-desc">診断や相談後、必要に応じて実際に改善・制作・開発します。小改善から業務ツール開発まで、必要な範囲だけ対応します。</p>
+            <p class="step"><b>PLAN B</b> 作って整える支援</p>
+            <h3>必要なものを整える</h3>
+            <p class="price">スポット5万円〜 / 月5万円〜</p>
+            <p class="plan-desc">営業ページ、フォーム、管理表、相談受付の流れ、小さな業務ツールなど、必要なものをこちらで作って整えます。スポット制作と継続改善を、内容に応じて提案します。</p>
             <ul>
-              <li>小改善 5万〜15万円目安</li>
-              <li>実装支援 10万〜50万円目安</li>
-              <li>小規模Web開発は30万円〜</li>
+              <li>小さな制作・改善 5万〜30万円</li>
+              <li>小規模な仕組みづくり 50万円〜</li>
+              <li>継続改善 月5万〜15万円</li>
             </ul>
           </article>
         </div>
         <div class="price-note">
-          <strong>診断後は、必ず高額な支援に進む必要はありません。</strong><br>
-          既存LPの文言改善、フォーム改善、Excel / スプレッドシート整理、簡単なGAS、返信テンプレ作成など、5万〜15万円程度の小改善から提案できます。複数業務・外部サービス連携・本格的なWebシステムは個別見積もりです。
+          <strong>料金は、作業範囲・納期・必要な機能によって変わります。</strong><br>
+          30分相談では、まず今の困りごとを伺い、「小さな制作・改善で足りるか」「仕組みづくりとして進めるべきか」「AIエージェント活用支援が合うか」を一緒に切り分けます。相談後、必要な範囲だけお見積もりします。外部ツール利用料は含みません。
         </div>
       </div>
     </section>
@@ -640,18 +629,18 @@
           <p class="section-label">Partner</p>
           <div>
             <h2 id="profile-title">担当する人。</h2>
-            <p class="section-copy">AIや開発をいきなり売るのではなく、困りごとを整理して、必要な範囲だけ小さく改善するところから入ります。</p>
+            <p class="section-copy">AIや開発をいきなり売るのではなく、困りごとを整理して、必要な進め方を一緒に切り分けるところから入ります。</p>
           </div>
         </div>
         <div class="profile-panel">
           <img src="assets/inajiro.png" alt="稲田裕次郎（いなじろう）" />
           <div>
             <h3>稲田裕次郎（いなじろう）</h3>
-            <p>Webアプリケーション開発の実務経験をもとに、AI活用、業務整理、スプレッドシート改善、小規模Web開発まで、必要な範囲だけ小さく試す支援をしています。ツール導入や開発を先に決めるのではなく、今の困りごと、詰まり、確認が必要な場所を見るところから始めます。</p>
-            <p>得意なのは、曖昧な相談を「AIで足りる部分」「GASやスプレッドシートで軽くできる部分」「小さく作るべき部分」に分解することです。作って終わりではなく、現場で使える形に落とすことを重視しています。</p>
+            <p>Webアプリケーション開発の実務経験をもとに、AIエージェント活用、営業ページ・フォーム・管理表づくり、小さな業務ツールまで、必要な範囲だけ小さく試す支援をしています。ツール導入や開発を先に決めるのではなく、今の困りごと、詰まり、確認が必要な場所を見るところから始めます。</p>
+            <p>得意なのは、曖昧な相談を「AIエージェントを使えるようにする部分」と「こちらで作って整える部分」に分解することです。作って終わりではなく、現場で使える形に落とすことを重視しています。</p>
             <div class="proof-box">
-              <strong>実績</strong>
-              <p><a href="https://menta.work/user/169353" target="_blank" rel="noopener">MENTA</a> では、個人エンジニア向けに課題整理・学習方針・実装相談を継続的にサポートしてきました。70名以上の支援経験があり、<a href="https://intercom.help/mentajp/ja/articles/3108334-%E3%83%90%E3%83%83%E3%82%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank" rel="noopener">全体上位5%のブロンズバッジ</a>を獲得しています。</p>
+              <strong>背景</strong>
+              <p>Webアプリケーション開発の実務経験をもとに、要件整理、画面・フォーム設計、管理画面、外部サービス連携などを扱ってきました。相談では、技術名からではなく、今どこで詰まっているかを聞くところから始めます。</p>
             </div>
           </div>
         </div>
@@ -661,7 +650,7 @@
     <section id="contact" class="section contact" aria-labelledby="contact-title">
       <div class="wrap">
         <h2 id="contact-title">まずは、今困っていることをそのまま送ってください。</h2>
-        <p>AI研修、スプレッドシート改善、問い合わせ導線、小さな業務ツールなど、まだ整理できていなくても大丈夫です。30分相談から、どこを直すと効果が出そうかを切り分けます。</p>
+        <p>AIエージェント活用、営業ページ、フォーム、管理表、小さな業務ツールなど、まだ整理できていなくても大丈夫です。30分相談から、どちらの進め方が合うかを切り分けます。</p>
         <div class="contact-actions">
           <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">問い合わせフォームを開く</a>
           <a class="btn btn-secondary" href="#plans">プランを見直す</a>
