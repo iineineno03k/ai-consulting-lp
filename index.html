@@ -310,6 +310,7 @@
     .price { margin: 16px 0 0 !important; color: var(--ink) !important; font-size: 27px; font-weight: 850; line-height: 1.25; overflow-wrap: anywhere; }
     .price .old-price { color: var(--ink-2); opacity: .58; text-decoration: line-through; text-decoration-thickness: 2px; font-size: 17px; margin-right: 9px; }
     .price .free-price { color: var(--red); }
+    .price.price-text { font-size: 16px; font-weight: 700; color: var(--muted) !important; margin-top: 12px !important; letter-spacing: .02em; }
     .plan-desc { margin: 16px 0 0; font-size: 15px; line-height: 1.85; color: var(--ink-2); }
     .plan ul { margin: auto 0 0; padding: 22px 0 0; list-style: none; display: grid; gap: 11px; font-size: 14px; }
     .plan li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; color: var(--ink-2); line-height: 1.55; font-weight: 600; }
@@ -569,6 +570,35 @@
       </div>
     </section>
 
+    <section id="effect" class="section" aria-labelledby="effect-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-label">Effect</p>
+          <div>
+            <h2 id="effect-title">どのくらい減るのかは、一緒に数えます。</h2>
+            <p class="section-copy">「劇的に効率化します」とは言いません。今その作業に何時間かかっているかを数えて、変えたあとにもう一度数える。減っていなければ、やり方が間違っているということです。</p>
+          </div>
+        </div>
+        <div class="situations">
+          <div class="situation-main">
+            <h3>たとえば、見積書づくりの場合。</h3>
+            <p>1件あたり30分かかっていて、月に40件あるなら、それだけで月20時間。下書きをAIに任せて1件10分になれば、月13時間が空く計算になります。</p>
+            <p>この数字はあくまで計算の例です。実際には御社の件数と時間を入れて、相談の場で一緒に出します。</p>
+          </div>
+          <ul class="situation-list">
+            <li>相談の場で、今かかっている時間を数える</li>
+            <li>対象業務を決めて、変えたあとにもう一度数える</li>
+            <li>減っていなければ、対象業務の選び方から見直す</li>
+            <li>数字は御社の実際の件数で出す。他社の平均値は使わない</li>
+          </ul>
+        </div>
+        <div class="price-note">
+          <strong>AIを入れたのに、3か月後には誰も使っていない。これがいちばん多い失敗です。</strong><br>
+          原因はたいてい、ツールを入れて終わりにしていることです。誰がどの場面で使うのか、間違いをどこで止めるのかが決まっていないと、現場は元のやり方に戻ります。だから対象を1業務に絞り、担当者の手順として社内に残すところまでを範囲にしています。
+        </div>
+      </div>
+    </section>
+
     <section id="plans" class="section alt" aria-labelledby="plans-title">
       <div class="wrap">
         <div class="section-head">
@@ -594,7 +624,7 @@
           <article class="plan">
             <p class="step"><b>STEP 02</b> 対象を決める</p>
             <h3>1業務を選んで見積もる</h3>
-            <p class="price">相談後にお見積もり</p>
+            <p class="price price-text">相談後にお見積もり</p>
             <p class="plan-desc">対象業務を1つ決め、今の流れと必要な作業を確認したうえで、範囲と費用をお出しします。</p>
             <ul>
               <li>対象業務の現状を確認</li>
@@ -605,7 +635,7 @@
           <article class="plan">
             <p class="step"><b>STEP 03</b> 実行</p>
             <h3>実際に変えて、社内に残す</h3>
-            <p class="price">合意した範囲で実施</p>
+            <p class="price price-text">合意した範囲で実施</p>
             <p class="plan-desc">御社の実物を使って形にし、担当者が自分で回せる手順まで持っていきます。</p>
             <ul>
               <li>実際の書類・データで作る</li>
@@ -638,7 +668,8 @@
             <p>その進め方を、中小企業の書類仕事に当てはめています。AIに任せる部分と人が確認する部分を分けて、担当者が自分で回せる形にするまでを一緒にやります。</p>
             <div class="proof-box">
               <strong>担当してきたこと</strong>
-              <p>Webアプリケーション開発では、要件整理、画面・フォーム設計、管理画面、外部サービス連携を担当してきました。自分の仕事でも、資料づくりや情報整理をAIに下書きさせる形を日常的に使っています。</p>
+              <p>何を作るか決まっていない状態から、話を聞いて決めること。入力する人が迷わない形にすること。社内の人が状況を確認できるようにすること。別々のサービスに散らばった情報をつなぐこと。仕事で担当してきたのは、この種類の作業です。</p>
+              <p>自分の仕事でも、資料づくりや情報整理をAIに下書きさせる形を日常的に使っています。使えない場面も含めて、どこまで任せられるかは実際に試して確かめています。</p>
               <p>個人向けにも、AI活用や開発の相談支援を行ってきました。相手の話を聞いて次にやることを具体化するのは、その中で身につけたやり方です。</p>
               <p class="proof-note">本サービスは個人事業として提供しています。所属会社の業務・サービスとは関係がなく、契約・請求も個人事業としてお受けします。</p>
             </div>
