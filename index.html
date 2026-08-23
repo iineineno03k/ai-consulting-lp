@@ -3,417 +3,427 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>中小企業のAI業務改善｜見積書・請求書・報告書づくりを1業務から</title>
-  <meta name="description" content="従業員10〜80名の会社向け。見積書・請求書・日報など、毎回人が手で作っている書類仕事を、AIが下書きして人が確認する形に変えます。電子請求書・電子契約への対応も相談できます。" />
-  <meta property="og:title" content="中小企業のAI業務改善｜見積書・請求書・報告書づくりを1業務から" />
-  <meta property="og:description" content="毎回人が手で作っている書類仕事を、AIが下書きして人が確認する形に変えます。まず1業務から、30分相談で対象を決めます。" />
+  <title>1業務からのAI業務改善｜稲田裕次郎</title>
+  <meta name="description" content="見積書、請求書、日報、転記など、毎回似ているのに人が迷う1業務を整理し、AI・既存サービス・小さな開発を使って担当者以外でも回せる形にします。30分相談は無料です。" />
+  <meta property="og:title" content="1業務からのAI業務改善｜稲田裕次郎" />
+  <meta property="og:description" content="会社の規模ではなく、止まっている1業務から。AIに任せる部分と人が確認する部分を分け、担当者が回せる手順まで残します。" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://iineineno03k.github.io/ai-consulting-lp/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://iineineno03k.github.io/ai-consulting-lp/assets/og-image.png" />
-  <meta name="theme-color" content="#f3eee4" />
-  <link rel="icon" href="assets/inajiro-favicon.png" type="image/png" sizes="64x64">
-  <link rel="apple-touch-icon" href="assets/inajiro-touch.png">
+  <meta name="theme-color" content="#f2eee6" />
+  <link rel="icon" href="assets/inajiro-favicon.png" type="image/png" sizes="64x64" />
+  <link rel="apple-touch-icon" href="assets/inajiro-touch.png" />
   <style>
     :root {
-      --paper: #f3eee4;
-      --paper-2: #fbf7ef;
-      --sheet: #fffdfa;
-      --ink: #151b22;
-      --ink-2: #303943;
-      --muted: #65707b;
-      --faint: rgba(23, 32, 42, .08);
-      --line: rgba(23, 32, 42, .18);
-      --line-strong: rgba(23, 32, 42, .42);
-      --red: #a72a3a;
-      --red-dark: #7f1d2d;
-      --navy: #101b27;
-      --soft-red: #ead8d6;
-      --max: 1136px;
-      --radius: 12px;
+      --paper: #f2eee6;
+      --paper-light: #faf8f3;
+      --white: #fff;
+      --ink: #161b22;
+      --ink-soft: #333b45;
+      --muted: #626b75;
+      --line: rgba(22, 27, 34, .18);
+      --line-strong: rgba(22, 27, 34, .5);
+      --red: #982a39;
+      --red-dark: #741d2a;
+      --navy: #111c28;
+      --max: 1120px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       margin: 0;
+      overflow-x: hidden;
       background: var(--paper);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-size: 16px;
       line-height: 1.85;
-      letter-spacing: .012em;
-      overflow-x: hidden;
+      letter-spacing: .01em;
     }
+    img { display: block; max-width: 100%; }
     a { color: inherit; }
-    img { max-width: 100%; display: block; }
-    .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
-    .skip-link { position: absolute; left: 16px; top: -80px; z-index: 100; background: var(--ink); color: #fff; padding: 10px 14px; }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 16px;
+      z-index: 100;
+      padding: 10px 14px;
+      background: var(--navy);
+      color: #fff;
+    }
     .skip-link:focus { top: 16px; }
-    :focus-visible { outline: 3px solid rgba(201, 31, 50, .45); outline-offset: 3px; }
+    :focus-visible { outline: 3px solid rgba(152, 42, 57, .45); outline-offset: 4px; }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(243, 238, 228, .94);
-      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
+      background: rgba(242, 238, 230, .96);
+      backdrop-filter: blur(12px);
     }
-    .header-inner {
-      min-height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+    .header-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       text-decoration: none;
-      font-weight: 780;
-      letter-spacing: .01em;
+      font-weight: 820;
       white-space: nowrap;
     }
     .brand-mark {
-      width: 31px;
-      height: 31px;
+      width: 28px;
+      height: 28px;
       display: grid;
       place-items: center;
-      background: var(--sheet);
       border: 1.5px solid var(--ink);
+      background: var(--paper-light);
     }
     .brand-mark::before {
       content: "";
-      width: 13px;
-      height: 8px;
+      width: 12px;
+      height: 7px;
       border-left: 2px solid var(--red);
       border-bottom: 2px solid var(--red);
       transform: rotate(-45deg) translate(1px, -1px);
     }
-    .nav { display: flex; align-items: center; gap: 24px; font-size: 13px; font-weight: 800; }
-    .nav a { text-decoration: none; color: var(--ink-2); }
-    .nav .nav-cta { display: inline-flex; align-items: center; color: #fff; background: var(--red-dark); padding: 11px 18px; border-radius: 12px; line-height: 1; white-space: nowrap; }
+    .nav { display: flex; align-items: center; gap: 23px; font-size: 13px; font-weight: 760; }
+    .nav a { text-decoration: none; color: var(--ink-soft); }
+    .nav .nav-cta { padding: 9px 15px; background: var(--red-dark); color: #fff; }
 
-    .btn {
+    .button {
       min-height: 52px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 13px 21px;
       border: 1px solid var(--line-strong);
-      border-radius: 12px;
       text-decoration: none;
-      font-weight: 780;
       font-size: 14px;
-      line-height: 1.3;
-      transition: transform .16s ease, background .16s ease, border-color .16s ease;
+      font-weight: 800;
+      line-height: 1.35;
+      transition: transform .16s ease, background .16s ease;
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--red-dark); border-color: var(--red-dark); color: #fff; }
-    .btn-primary:hover { background: #641523; }
-    .btn-secondary { background: rgba(255,255,255,.58); color: var(--ink); }
+    .button:hover { transform: translateY(-1px); }
+    .button-primary { border-color: var(--red-dark); background: var(--red-dark); color: #fff; }
+    .button-primary:hover { background: #5d1420; }
+    .button-secondary { background: rgba(255,255,255,.48); }
 
-    .hero {
-      border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(90deg, rgba(23,32,42,.045) 1px, transparent 1px) 0 0 / 64px 64px,
-        linear-gradient(rgba(23,32,42,.035) 1px, transparent 1px) 0 0 / 64px 64px,
-        radial-gradient(circle at 88% 12%, rgba(201,31,50,.11), transparent 34%),
-        var(--paper);
-    }
-    .hero-inner {
-      min-height: calc(100svh - 70px);
+    .hero { border-bottom: 1px solid var(--line); background: var(--paper); }
+    .hero-grid {
+      min-height: calc(100svh - 68px);
       display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(420px, 1.05fr);
-      gap: 56px;
+      grid-template-columns: minmax(0, 1.05fr) minmax(370px, .75fr);
+      gap: 74px;
       align-items: center;
-      padding: 70px 0 82px;
+      padding: 68px 0 76px;
     }
-    h1, h2, h3 { color: var(--ink); letter-spacing: -.018em; }
-    h1 {
-      margin: 0;
-      font-size: clamp(38px, 4vw, 52px);
-      line-height: 1.2;
-      font-weight: 720;
-      max-width: 720px;
-      overflow-wrap: anywhere;
-    }
-    .marker { color: var(--red); }
-    .h1-line { white-space: nowrap; }
-    .mobile-only { display: none; }
-    .hero-lead {
-      margin: 28px 0 0;
-      max-width: 670px;
-      color: var(--ink-2);
-      font-size: clamp(16px, 1.45vw, 18px);
-      line-height: 2;
-      font-weight: 520;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
-    .hero-note {
-      margin: 20px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .micro-proof {
-      margin-top: 34px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 650px;
-    }
-    .micro-proof span { display: block; color: var(--muted); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .micro-proof strong { display: block; margin-top: 3px; font-size: 14px; line-height: 1.55; }
-
-    .sort-sheet {
-      background: var(--sheet);
-      border: 1px solid rgba(23,32,42,.2);
-      box-shadow: 0 18px 54px rgba(20, 26, 34, .08);
-      padding: 28px;
-      position: relative;
-    }
-    .sort-sheet::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border: 1px solid var(--faint);
-      pointer-events: none;
-    }
-    .sheet-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 18px;
-    }
-    .sheet-title { margin: 0; font-size: 25px; line-height: 1.35; font-weight: 740; letter-spacing: -.02em; }
-    .sheet-stamp {
-      flex: 0 0 auto;
+    .eyebrow {
+      margin: 0 0 19px;
       color: var(--red-dark);
-      border: 2px solid var(--red);
-      border-radius: 999px;
-      padding: 7px 11px;
       font-size: 12px;
-      font-weight: 820;
-      transform: rotate(-4deg);
+      font-weight: 850;
+      letter-spacing: .18em;
+      text-transform: uppercase;
     }
-    .sheet-grid { display: grid; gap: 0; }
-    .sheet-row {
-      display: grid;
-      grid-template-columns: 138px 1fr;
-      gap: 22px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
+    h1, h2, h3 { margin-top: 0; color: var(--ink); letter-spacing: -.025em; }
+    h1 {
+      margin-bottom: 0;
+      max-width: 700px;
+      font-size: clamp(39px, 4.4vw, 59px);
+      line-height: 1.18;
+      font-weight: 760;
     }
-    .sheet-row:last-child { border-bottom: 0; padding-bottom: 4px; }
-    .sheet-label { margin: 0; color: var(--muted); font-size: 12px; font-weight: 820; letter-spacing: .14em; text-transform: uppercase; }
-    .sheet-text { margin: 0; font-size: 17px; line-height: 1.75; font-weight: 650; }
-    .sheet-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-    .sheet-list li { display: grid; grid-template-columns: 12px 1fr; gap: 10px; font-weight: 620; line-height: 1.7; }
-    .sheet-list li::before { content: ""; width: 9px; height: 9px; margin-top: .62em; background: var(--red); }
+    .hero-emphasis { color: var(--red); }
+    .hero-lead {
+      max-width: 690px;
+      margin: 27px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(16px, 1.45vw, 18px);
+      line-height: 1.95;
+      font-weight: 560;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
+    .hero-note { margin: 16px 0 0; color: var(--muted); font-size: 13px; }
 
-    .section { padding: 92px 0; }
-    .section.alt { background: var(--paper-2); border-block: 1px solid var(--line); }
-    .section.dark { background: var(--navy); color: #fff; }
-    .section.dark h2, .section.dark h3 { color: #fff; }
-    .section.dark p, .section.dark li { color: rgba(255,255,255,.76); }
-    .section-head {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 44px;
-      align-items: start;
-      margin-bottom: 42px;
-    }
-    .section-label { margin: 7px 0 0; color: var(--red-dark); font-size: 12px; font-weight: 820; letter-spacing: .18em; text-transform: uppercase; }
-    .section.dark .section-label { color: #ff8d98; }
-    h2 { margin: 0; font-size: clamp(30px, 3.45vw, 42px); line-height: 1.27; font-weight: 720; }
-    .section-copy { margin: 18px 0 0; max-width: 760px; color: var(--ink-2); font-size: 17px; line-height: 1.95; font-weight: 540; }
-
-    .situations {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.46);
-    }
-    .situation-main { padding: 34px; border-right: 1px solid var(--line); background: var(--sheet); }
-    .situation-main h3 { margin: 0; font-size: 28px; line-height: 1.35; }
-    .situation-main p { margin: 16px 0 0; color: var(--ink-2); }
-    .situation-list { margin: 0; padding: 24px 28px; list-style: none; display: grid; gap: 14px; }
-    .situation-list li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; color: var(--ink-2); font-weight: 720; }
-    .situation-list li::before { content: ""; width: 10px; height: 10px; margin-top: .7em; border-radius: 50%; background: var(--red); }
-
-    .scope-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .scope-card { background: var(--sheet); padding: 28px; min-height: 310px; }
-    .scope-card h3 { margin: 0; font-size: 23px; line-height: 1.35; }
-    .scope-card p { margin: 12px 0 0; color: var(--ink-2); font-size: 14px; line-height: 1.8; }
-    .scope-card ul { margin: 20px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
-    .scope-card li { display: grid; grid-template-columns: 14px 1fr; gap: 9px; color: var(--ink-2); font-size: 14px; font-weight: 650; line-height: 1.65; }
-    .scope-card li::before { content: ""; width: 8px; height: 8px; margin-top: .72em; background: var(--red); }
-
-    .price-note {
-      margin-top: 24px;
-      padding: 22px 24px;
-      border: 1px solid var(--line);
-      background: var(--sheet);
-      color: var(--ink-2);
-      font-size: 14px;
-      line-height: 1.85;
-      border-radius: 12px;
-    }
-    .price-note strong { color: var(--ink); }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .process-step { background: var(--sheet); padding: 26px; min-height: 230px; }
-    .process-step small { color: var(--red-dark); font-weight: 820; letter-spacing: .14em; text-transform: uppercase; }
-    .process-step h3 { margin: 18px 0 10px; font-size: 22px; line-height: 1.35; }
-    .process-step p { margin: 0; color: var(--ink-2); font-size: 14px; line-height: 1.85; }
-
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    .plan {
+    .hero-person {
       position: relative;
-      min-height: 430px;
-      display: flex;
-      flex-direction: column;
-      padding: 30px 28px;
-      background: var(--sheet);
-      border: 1px solid var(--line);
-      border-radius: 16px;
+      border: 1px solid var(--line-strong);
+      background: var(--paper-light);
+      padding: 20px;
+      box-shadow: 14px 14px 0 rgba(17, 28, 40, .08);
     }
-    /* 最初の入口はほんのり色づけて「ここから」を示す（推し売りではなく起点） */
-    .plan.entry { background: #fff5ef; border-color: rgba(167,42,58,.3); }
-    .plan .step { display: flex; align-items: baseline; gap: 9px; color: var(--red); font-size: 12px; font-weight: 820; letter-spacing: .16em; text-transform: uppercase; }
-    .plan .step b { font-size: 16px; font-weight: 900; color: var(--ink); letter-spacing: .04em; }
-    .plan .here { align-self: flex-start; margin-top: 14px; padding: 5px 12px; background: var(--red); color: #fff; border-radius: 999px; font-size: 12px; font-weight: 820; letter-spacing: .04em; }
-    .plan h3 { margin: 14px 0 0; font-size: 25px; line-height: 1.3; color: var(--ink); }
-    .price { margin: 16px 0 0 !important; color: var(--ink) !important; font-size: 27px; font-weight: 850; line-height: 1.25; overflow-wrap: anywhere; }
-    .price .old-price { color: var(--ink-2); opacity: .58; text-decoration: line-through; text-decoration-thickness: 2px; font-size: 17px; margin-right: 9px; }
-    .price .free-price { color: var(--red); }
-    .price.price-text { font-size: 16px; font-weight: 700; color: var(--muted) !important; margin-top: 12px !important; letter-spacing: .02em; }
-    .plan-desc { margin: 16px 0 0; font-size: 15px; line-height: 1.85; color: var(--ink-2); }
-    .plan ul { margin: auto 0 0; padding: 22px 0 0; list-style: none; display: grid; gap: 11px; font-size: 14px; }
-    .plan li { display: grid; grid-template-columns: 16px 1fr; gap: 10px; color: var(--ink-2); line-height: 1.55; font-weight: 600; }
-    .plan li::before { content: ""; width: 7px; height: 7px; margin-top: .55em; border-radius: 50%; background: var(--red); }
-
-    .profile-panel {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 40px;
-      align-items: start;
-      padding: 34px;
-      background: var(--sheet);
-      border: 1px solid var(--line);
+    .hero-person::before {
+      content: "相談から実装まで本人が担当";
+      display: block;
+      padding-bottom: 13px;
+      border-bottom: 1px solid var(--line);
+      color: var(--red-dark);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .05em;
     }
-    .profile-panel img {
-      width: 230px;
+    .hero-person img {
+      width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
-      border-radius: 50%;
-      border: 8px solid #ebe1d2;
-      background: #ebe1d2;
+      object-position: center 30%;
+      margin-top: 18px;
+      background: #e9dfd0;
     }
-    .profile-panel h3 { margin: 0; font-size: 30px; line-height: 1.35; }
-    .profile-role {
-      display: inline-flex;
-      margin: 10px 0 2px !important;
-      padding: 6px 10px;
-      border: 1px solid rgba(167,42,58,.28);
-      border-radius: 999px;
-      background: #fff5ef;
-      color: var(--red-dark) !important;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.4;
-    }
-    .profile-panel p { margin: 14px 0 0; color: var(--ink-2); }
-    .proof-box {
-      margin-top: 22px;
-      padding: 20px;
-      background: #f7f0e7;
-      border: 1px solid var(--line);
-    }
-    .proof-box strong { display: block; margin-bottom: 8px; }
-    .proof-box strong + p + strong, .proof-box p + strong { margin-top: 20px; }
-    .proof-box a { font-weight: 780; text-underline-offset: 3px; }
-    .proof-note { font-size: 13px; color: var(--muted) !important; }
+    .hero-person h2 { margin: 17px 0 0; font-size: 25px; line-height: 1.35; }
+    .hero-person .role { margin: 5px 0 0; color: var(--red-dark); font-size: 13px; font-weight: 800; }
+    .hero-person ul { margin: 15px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); list-style: none; }
+    .hero-person li { padding: 7px 0; color: var(--ink-soft); font-size: 14px; font-weight: 650; line-height: 1.6; }
 
-    .contact {
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px) 0 0 / 64px 64px,
-        radial-gradient(circle at 12% 18%, rgba(201,31,50,.18), transparent 31%),
-        var(--navy);
-      color: #fff;
-      text-align: center;
+    .section { padding: 92px 0; }
+    .section-light { border-block: 1px solid var(--line); background: var(--paper-light); }
+    .section-dark { background: var(--navy); color: #fff; }
+    .section-dark h2, .section-dark h3 { color: #fff; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 185px minmax(0, 1fr);
+      gap: 44px;
+      align-items: start;
+      margin-bottom: 48px;
     }
-    .contact h2 { color: #fff; max-width: 820px; margin-inline: auto; text-wrap: balance; word-break: keep-all; }
-    .contact p { max-width: 720px; margin: 22px auto 0; color: rgba(255,255,255,.77); font-size: 17px; line-height: 1.95; }
-    .contact-actions { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 13px; }
-    .contact .btn-secondary { color: #fff; background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.25); }
-    .contact small { display: block; margin-top: 18px; color: rgba(255,255,255,.58); }
+    .section-number { margin: 7px 0 0; color: var(--red-dark); font-size: 12px; font-weight: 850; letter-spacing: .16em; }
+    .section-dark .section-number { color: #f0939f; }
+    h2 { margin-bottom: 0; max-width: 810px; font-size: clamp(31px, 3.5vw, 44px); line-height: 1.3; font-weight: 740; }
+    h3 { margin-bottom: 0; font-size: 23px; line-height: 1.4; }
+    .section-copy { max-width: 780px; margin: 18px 0 0; color: var(--ink-soft); font-size: 17px; line-height: 1.95; }
+    .section-dark .section-copy { color: rgba(255,255,255,.74); }
+
+    .symptom-list { border-top: 2px solid var(--ink); }
+    .symptom-row {
+      display: grid;
+      grid-template-columns: 78px minmax(210px, .75fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: start;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .symptom-row > span { color: var(--red-dark); font-size: 12px; font-weight: 850; letter-spacing: .12em; }
+    .symptom-row h3 { font-size: 21px; }
+    .symptom-row p { margin: 0; color: var(--ink-soft); line-height: 1.8; }
+
+    .decision-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+      gap: 48px;
+      align-items: start;
+    }
+    .decision-intro { position: sticky; top: 96px; border-left: 5px solid var(--red); padding-left: 25px; }
+    .decision-intro h3 { font-size: 29px; }
+    .decision-intro p { margin: 17px 0 0; color: var(--ink-soft); }
+    .decision-list { border-top: 1px solid var(--line-strong); }
+    .decision-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 22px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .decision-item strong { color: var(--red-dark); }
+    .decision-item p { margin: 0; color: var(--ink-soft); }
+
+    .work-sheet { margin-top: 58px; border: 1px solid var(--line-strong); background: #fff; }
+    .work-sheet-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 24px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .work-sheet-head h3 { font-size: 25px; }
+    .work-sheet-head span { color: var(--red-dark); font-size: 12px; font-weight: 850; }
+    .work-rows { display: grid; }
+    .work-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 30px;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .work-row:last-child { border-bottom: 0; }
+    .work-row strong { color: var(--red-dark); font-size: 13px; letter-spacing: .06em; }
+    .work-row p { margin: 0; color: var(--ink-soft); font-weight: 620; }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 55px;
+      align-items: start;
+    }
+    .profile-photo { border: 1px solid rgba(255,255,255,.34); padding: 12px; background: rgba(255,255,255,.07); }
+    .profile-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center 30%; }
+    .profile-content h3 { color: #fff; font-size: 31px; }
+    .profile-content .role { margin: 8px 0 0; color: #f4a4ae; font-size: 14px; font-weight: 820; }
+    .profile-content > p { margin: 17px 0 0; color: rgba(255,255,255,.78); }
+    .experience-lines { margin-top: 27px; border-top: 1px solid rgba(255,255,255,.3); }
+    .experience-line {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 22px;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .experience-line strong { color: #fff; font-size: 13px; }
+    .experience-line span { color: rgba(255,255,255,.72); }
+    .profile-note { margin-top: 18px !important; color: rgba(255,255,255,.53) !important; font-size: 12px; }
+
+    .cases-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap: 38px;
+      align-items: stretch;
+    }
+    .case-main { border-top: 4px solid var(--red); background: #fff; padding: 31px; }
+    .case-status { color: var(--red-dark); font-size: 12px; font-weight: 850; letter-spacing: .1em; }
+    .case-main h3 { margin-top: 12px; font-size: 28px; }
+    .case-main > p { margin: 16px 0 0; color: var(--ink-soft); }
+    .case-flow { margin-top: 26px; border-top: 1px solid var(--line); }
+    .case-flow div { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .case-flow strong { color: var(--red-dark); font-size: 13px; }
+    .case-flow p { margin: 0; color: var(--ink-soft); }
+    .case-side { border-left: 1px solid var(--line-strong); }
+    .mini-case { padding: 2px 0 25px 28px; }
+    .mini-case + .mini-case { padding-top: 25px; border-top: 1px solid var(--line); }
+    .mini-case small { color: var(--red-dark); font-weight: 850; }
+    .mini-case h3 { margin-top: 8px; font-size: 21px; }
+    .mini-case p { margin: 12px 0 0; color: var(--ink-soft); }
+
+    .measure-box {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      border: 1px solid var(--line);
+      background: var(--paper-light);
+    }
+    .measure-box > div { padding: 28px; }
+    .measure-box > div + div { border-left: 1px solid var(--line); }
+    .measure-box strong { display: block; color: var(--red-dark); font-size: 13px; letter-spacing: .05em; }
+    .measure-box h3 { margin-top: 10px; }
+    .measure-box p { margin: 12px 0 0; color: var(--ink-soft); }
+
+    .steps { border-top: 2px solid var(--ink); }
+    .step-row {
+      display: grid;
+      grid-template-columns: 86px 220px minmax(0, 1fr) 180px;
+      gap: 24px;
+      align-items: start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .step-row > span { color: var(--red-dark); font-size: 13px; font-weight: 850; letter-spacing: .12em; }
+    .step-row h3 { font-size: 21px; }
+    .step-row p { margin: 0; color: var(--ink-soft); }
+    .step-price { text-align: right; color: var(--ink) !important; font-weight: 850; }
+    .price-note { margin-top: 27px; padding: 22px 24px; border-left: 5px solid var(--red); background: #fff; color: var(--ink-soft); }
+    .price-note strong { color: var(--ink); }
+
+    .faq { border-top: 1px solid var(--line-strong); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      cursor: pointer;
+      font-weight: 780;
+      list-style: none;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--red-dark); font-size: 24px; font-weight: 500; }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { max-width: 820px; margin: -2px 0 23px; color: var(--ink-soft); }
+
+    .contact { background: var(--red-dark); color: #fff; text-align: center; }
+    .contact .eyebrow { color: #ffb7c0; }
+    .contact h2 { margin-inline: auto; color: #fff; }
+    .contact > .wrap > p { max-width: 760px; margin: 20px auto 0; color: rgba(255,255,255,.8); font-size: 17px; }
+    .contact-actions { display: flex; justify-content: center; gap: 12px; margin-top: 30px; }
+    .contact .button-primary { border-color: #fff; background: #fff; color: var(--red-dark); }
+    .contact .button-secondary { border-color: rgba(255,255,255,.55); background: transparent; color: #fff; }
+    .contact small { display: block; margin-top: 17px; color: rgba(255,255,255,.6); }
 
     footer { background: #0d141d; color: rgba(255,255,255,.62); }
-    .footer-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 13px; }
+    .footer-inner { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 13px; }
 
-    @media (max-width: 1000px) {
-      .hero-inner { grid-template-columns: 1fr; min-height: auto; gap: 42px; }
-      .section-head { grid-template-columns: 1fr; gap: 14px; }
-      .plans, .process, .scope-grid { grid-template-columns: repeat(2, 1fr); }
-      .plan::after { display: none; }
-      .situations { grid-template-columns: 1fr; }
-      .situation-main { border-right: 0; border-bottom: 1px solid var(--line); }
-      .profile-panel { grid-template-columns: 170px 1fr; }
-      .profile-panel img { width: 170px; }
-    }
-    @media (max-width: 720px) {
-      .wrap { width: calc(100% - 34px); }
-      .header-inner { min-height: 64px; }
-      .brand span { font-size: 13px; }
+    @media (max-width: 960px) {
       .nav { display: none; }
-      .hero-inner { padding: 48px 0 58px; }
-      h1 { font-size: clamp(32px, 8.9vw, 38px); line-height: 1.2; }
-      .h1-line { white-space: normal; }
-      .mobile-only { display: block; }
-      .hero-lead { line-height: 1.9; overflow-wrap: anywhere; }
-      .hero { overflow: hidden; }
+      .hero-grid { min-height: auto; grid-template-columns: 1fr; gap: 42px; padding: 60px 0 68px; }
+      .hero-person { display: grid; grid-template-columns: 190px 1fr; gap: 0 24px; }
+      .hero-person::before { grid-column: 1 / -1; }
+      .hero-person img { grid-row: 2 / span 3; }
+      .hero-person h2 { align-self: end; }
+      .hero-person ul { align-self: start; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .symptom-row { grid-template-columns: 54px 1fr; }
+      .symptom-row p { grid-column: 2; }
+      .decision-layout, .cases-layout, .measure-box { grid-template-columns: 1fr; }
+      .decision-intro { position: static; }
+      .profile-layout { grid-template-columns: 230px 1fr; gap: 38px; }
+      .case-side { border-left: 0; border-top: 1px solid var(--line-strong); padding-top: 26px; }
+      .mini-case { padding-left: 0; }
+      .measure-box > div + div { border-left: 0; border-top: 1px solid var(--line); }
+      .step-row { grid-template-columns: 65px 180px 1fr; }
+      .step-price { grid-column: 3; text-align: left; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: calc(100% - 34px); }
+      .header-inner { min-height: 62px; }
+      .brand { font-size: 13px; }
+      .hero-grid { padding: 39px 0 53px; gap: 34px; }
+      .eyebrow { margin-bottom: 14px; }
+      h1 { font-size: clamp(35px, 10.3vw, 43px); }
+      .hero-lead { margin-top: 22px; line-height: 1.85; }
       .hero-actions, .contact-actions { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-      .micro-proof { grid-template-columns: 1fr; }
-      .sort-sheet { padding: 22px; }
-      .sheet-head { display: block; }
-      .sheet-stamp { display: inline-flex; margin-top: 12px; }
-      .sheet-row { grid-template-columns: 1fr; gap: 8px; }
-      .sheet-title { font-size: 24px; }
-      .sheet-text { font-size: 16px; }
-      .section { padding: 72px 0; }
-      h2 { font-size: clamp(28px, 8vw, 38px); }
-      .section-copy { font-size: 16px; line-height: 1.9; }
-      .plans, .process, .scope-grid { grid-template-columns: 1fr; }
-      .plan { min-height: auto; }
-      .price { font-size: 24px; }
-      .profile-panel { grid-template-columns: 1fr; padding: 24px; }
-      .profile-panel img { width: 140px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; justify-content: center; padding: 20px 0; }
+      .button { width: 100%; }
+      .hero-person { display: grid; grid-template-columns: 104px 1fr; gap: 0 17px; padding: 16px; box-shadow: 8px 8px 0 rgba(17,28,40,.08); }
+      .hero-person::before { padding-bottom: 10px; }
+      .hero-person img { margin-top: 14px; }
+      .hero-person h2 { margin-top: 14px; font-size: 20px; }
+      .hero-person .role { font-size: 12px; }
+      .hero-person ul { grid-column: 1 / -1; margin-top: 14px; }
+      .hero-person li { padding: 5px 0; font-size: 13px; }
+      .section { padding: 68px 0; }
+      .section-head { margin-bottom: 34px; }
+      h2 { font-size: clamp(28px, 8vw, 34px); }
+      .section-copy { font-size: 16px; line-height: 1.85; }
+      .symptom-row { grid-template-columns: 42px 1fr; gap: 14px; padding: 21px 0; }
+      .symptom-row h3 { font-size: 19px; }
+      .decision-layout { gap: 34px; }
+      .decision-intro { padding-left: 18px; }
+      .decision-intro h3 { font-size: 24px; }
+      .decision-item { grid-template-columns: 1fr; gap: 5px; }
+      .work-sheet { margin-top: 42px; }
+      .work-sheet-head { display: block; padding: 18px; }
+      .work-sheet-head span { display: block; margin-top: 8px; }
+      .work-row { grid-template-columns: 1fr; gap: 5px; padding: 18px; }
+      .profile-layout { grid-template-columns: 1fr; gap: 28px; }
+      .profile-photo { width: min(250px, 76vw); }
+      .profile-content h3 { font-size: 27px; }
+      .experience-line { grid-template-columns: 1fr; gap: 5px; }
+      .case-main { padding: 24px; }
+      .case-main h3 { font-size: 24px; }
+      .case-flow div { grid-template-columns: 1fr; gap: 4px; }
+      .measure-box > div { padding: 22px; }
+      .step-row { grid-template-columns: 44px 1fr; gap: 13px; }
+      .step-row p, .step-price { grid-column: 2; }
+      .footer-inner { min-height: auto; flex-direction: column; align-items: flex-start; padding: 21px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
     }
   </style>
 </head>
@@ -421,337 +431,204 @@
   <a class="skip-link" href="#main">本文へ移動</a>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="中小企業のAI業務改善">
+      <a class="brand" href="#top" aria-label="1業務からのAI業務改善 トップへ">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span>中小企業のAI業務改善</span>
+        <span>1業務からのAI業務改善</span>
       </a>
       <nav class="nav" aria-label="主要ナビゲーション">
-        <a href="#consult">こんな会社向け</a>
-        <a href="#scope">できること</a>
-        <a href="#cases">事例</a>
-        <a href="#plans">進め方と費用</a>
+        <a href="#fit">相談対象</a>
+        <a href="#approach">進め方</a>
         <a href="#profile">担当者</a>
-        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">相談フォーム</a>
+        <a href="#cases">事例</a>
+        <a href="#price">費用</a>
+        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">30分相談</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
     <section id="top" class="hero" aria-labelledby="hero-title">
-      <div class="wrap hero-inner">
+      <div class="wrap hero-grid">
         <div>
-          <h1 id="hero-title">その見積書、<br><span class="h1-line"><span class="marker">まだ手作業で</span></span><br>作っていませんか。</h1>
-          <p class="hero-lead">従業員10〜80名の会社で、見積書・請求書・日報づくりに毎日時間が消えている。<br class="mobile-only">その中の1業務だけを、AIが下書きして人が確認する形に変えます。</p>
+          <p class="eyebrow">AI business improvement · One workflow at a time</p>
+          <h1 id="hero-title">毎回同じなのに、<br><span class="hero-emphasis">担当者が休むと<br>止まる。</span></h1>
+          <p class="hero-lead">見積書、請求書、日報、転記など、繰り返し発生する1業務を整理します。AI・既存サービス・小さな開発を比べ、担当者以外でも回せる仕組みと手順を残します。</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">30分相談フォームを開く</a>
-            <a class="btn btn-secondary" href="#consult">当てはまるか見てみる</a>
+            <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">30分相談フォームを開く</a>
+            <a class="button button-secondary" href="#fit">相談対象を確認する</a>
           </div>
-          <p class="hero-note">全社システムの入れ替えも、社員全員へのAI研修もしません。今いちばん時間を取られている業務を1つだけ選んで、そこから始めます。</p>
-          <div class="micro-proof" aria-label="よく相談される業務">
-            <div><span>Sales</span><strong>見積書・請求書</strong></div>
-            <div><span>Report</span><strong>日報・報告書</strong></div>
-            <div><span>Data</span><strong>Excel・管理表</strong></div>
-          </div>
+          <p class="hero-note">30分相談は無料です。その場で契約を求めることはありません。</p>
         </div>
-
-        <aside class="sort-sheet" aria-label="変わり方の例">
-          <div class="sheet-head">
-            <p class="sheet-title">たとえば、見積書づくり</p>
-            <span class="sheet-stamp">変わり方</span>
-          </div>
-          <div class="sheet-grid">
-            <div class="sheet-row">
-              <p class="sheet-label">今</p>
-              <p class="sheet-text">注文のメールを読んで、Excelに転記して、見積書の形を整えて、金額を計算して、送る。担当者が休むと止まる。</p>
-            </div>
-            <div class="sheet-row">
-              <p class="sheet-label">これから</p>
-              <ul class="sheet-list">
-                <li>メールの内容からAIが見積書の下書きを作る</li>
-                <li>担当者は金額と宛先を確認して送る</li>
-                <li>担当者以外でも同じ手順で回せる</li>
-              </ul>
-            </div>
-            <div class="sheet-row">
-              <p class="sheet-label">残すもの</p>
-              <p class="sheet-text">金額・宛先・条件など、間違えられない箇所は必ず人が確認する形で残します。</p>
-            </div>
-          </div>
+        <aside class="hero-person" aria-label="担当者情報">
+          <img src="assets/inajiro-professional-v1.png" alt="担当者の稲田裕次郎" />
+          <h2>稲田裕次郎</h2>
+          <p class="role">株式会社リクルート｜ソフトウェアエンジニア</p>
+          <ul>
+            <li>SUUMO領域の新規業務システム開発</li>
+            <li>要件整理から本番リリースまで担当</li>
+            <li>現在は開発リーダー</li>
+          </ul>
         </aside>
       </div>
     </section>
 
-    <section id="consult" class="section alt" aria-labelledby="consult-title">
+    <section id="fit" class="section section-light" aria-labelledby="fit-title">
       <div class="wrap">
         <div class="section-head">
-          <p class="section-label">For you</p>
+          <p class="section-number">01 · WHO</p>
           <div>
-            <h2 id="consult-title">こういう会社の相談を受けています。</h2>
-            <p class="section-copy">従業員10〜80名、年商1〜10億円くらいの会社が中心です。社内にシステム担当がいない、いても他の仕事を兼任している。そういう状態を前提に話します。</p>
+            <h2 id="fit-title">会社の規模ではなく、<br>止まっている業務で判断します。</h2>
+            <p class="section-copy">会社でも個人事業でも、対象にしたい業務が1つに切れれば相談できます。AIを使うことが決まっていなくても構いません。</p>
           </div>
         </div>
-        <div class="situations">
-          <div class="situation-main">
-            <h3>「うちはまだそこまでの段階じゃない」で大丈夫です。</h3>
-            <p>AIを何に使うか決まっていなくて構いません。むしろ、決まっていない会社のほうが多いです。今どの作業に時間を取られているかを聞くところから始めます。大手のコンサルが持ってくるような、全社を変える話にはしません。</p>
-          </div>
-          <ul class="situation-list">
-            <li>取引先から電子請求書・電子契約への対応を求められたが、社内で分かる人がいない</li>
-            <li>見積書・請求書を毎回手作りしていて、担当者が休むと止まる</li>
-            <li>日報や報告書の書き方が人によってバラバラで、まとめ直しに時間がかかる</li>
-            <li>Excelの管理表が増えすぎて、どれが最新か分からない</li>
-            <li>AIを使えと言われるが、何から手をつければいいのか分からない</li>
-          </ul>
+        <div class="symptom-list">
+          <article class="symptom-row"><span>01</span><h3>担当者が休むと止まる</h3><p>手順が一人の頭の中にあり、他の人では同じように処理できない。</p></article>
+          <article class="symptom-row"><span>02</span><h3>毎回、同じ内容を作り直す</h3><p>見積書、請求書、日報、報告書、返信文を、過去のファイルを探しながら作っている。</p></article>
+          <article class="symptom-row"><span>03</span><h3>転記と確認が増え続ける</h3><p>メール、Excel、フォーム、顧客管理サービスの間を人が移し替え、間違いの確認にも時間がかかる。</p></article>
+          <article class="symptom-row"><span>04</span><h3>AIを試したが、仕事では使えない</h3><p>回答は出るが、どこまで任せてよいか、誰が何を確認するかが決まっていない。</p></article>
         </div>
       </div>
     </section>
 
-    <section id="scope" class="section" aria-labelledby="scope-title">
+    <section id="approach" class="section" aria-labelledby="approach-title">
       <div class="wrap">
         <div class="section-head">
-          <p class="section-label">Scope</p>
+          <p class="section-number">02 · HOW</p>
           <div>
-            <h2 id="scope-title">毎回人がやっている作業を、下書きまでAIに任せます。</h2>
-            <p class="section-copy">AIに全部やらせて人を減らす話ではありません。下書きや転記のようにAIが得意な部分を任せ、金額・条件・お客様への言葉のように間違えられない部分は人が確認する。その線引きを、実際の業務を見ながら決めます。</p>
+            <h2 id="approach-title">最初に決めるのは、<br>どのAIを使うかではありません。</h2>
+            <p class="section-copy">今の手順、入力する情報、判断に迷う箇所、失敗したときの対応を確認します。そのうえで、最も小さく済む方法を選びます。</p>
           </div>
         </div>
-        <div class="scope-grid">
-          <article class="scope-card">
-            <h3>書類づくりを下書きまで任せる</h3>
-            <p>毎回ゼロから作っている書類を、AIが型に沿って下書きするところまで持っていきます。</p>
-            <ul>
-              <li>注文メールから見積書・請求書の下書き</li>
-              <li>日報・報告書のまとめ直し</li>
-              <li>お客様への返信文の下書き</li>
-              <li>担当者以外でも回せる手順に整える</li>
-            </ul>
-          </article>
-          <article class="scope-card">
-            <h3>電子請求書・電子契約への対応</h3>
-            <p>取引先から求められて困っている電子化まわりを、今の業務の流れを壊さない形で整えます。</p>
-            <ul>
-              <li>今の紙・Excel・メールの流れの整理</li>
-              <li>どこを電子化すれば要求を満たせるかの切り分け</li>
-              <li>保存・確認の担当と手順づくり</li>
-              <li>社内向けの説明資料</li>
-            </ul>
-          </article>
-          <article class="scope-card">
-            <h3>社内の人が自分で使えるようにする</h3>
-            <p>担当者が自分で回せるところまでやります。外部が抜けたら止まる仕組みは作りません。</p>
-            <ul>
-              <li>実際の業務を題材にした使い方の説明</li>
-              <li>任せてよい作業／人が見る作業のルール化</li>
-              <li>手順書として社内に残す</li>
-              <li>使い始めてからの相談対応</li>
-            </ul>
-          </article>
+        <div class="decision-layout">
+          <div class="decision-intro">
+            <h3>作らなくて済むなら、作りません。</h3>
+            <p>新しい仕組みを増やすほど、運用と保守も増えます。既存サービスや手順変更で足りる場合は、そちらを優先します。</p>
+          </div>
+          <div class="decision-list" aria-label="比較する方法">
+            <div class="decision-item"><strong>手順変更</strong><p>やり方や入力項目を揃えるだけで、迷いと手戻りを減らせないか。</p></div>
+            <div class="decision-item"><strong>既存サービス</strong><p>すでに使えるサービスや標準機能で、追加開発せずに解決できないか。</p></div>
+            <div class="decision-item"><strong>AI</strong><p>文章の下書き、分類、抽出など、AIに任せても人が確認できる箇所はどこか。</p></div>
+            <div class="decision-item"><strong>小さな開発</strong><p>既存サービスだけでは埋まらない部分に限り、必要な仕組みを作る。</p></div>
+          </div>
+        </div>
+        <div class="work-sheet" aria-label="見積書作成を変える例">
+          <div class="work-sheet-head"><h3>例：注文メールから見積書を作る</h3><span>1業務の切り分け例</span></div>
+          <div class="work-rows">
+            <div class="work-row"><strong>入力</strong><p>お客様から届く注文メール、商品情報、過去の見積書</p></div>
+            <div class="work-row"><strong>仕組みに任せる</strong><p>宛先・商品・数量を読み取り、決めた形式で見積書の下書きを作る</p></div>
+            <div class="work-row"><strong>人が確認する</strong><p>金額、取引条件、宛先、例外的な値引き</p></div>
+            <div class="work-row"><strong>残すもの</strong><p>動く仕組み、確認ルール、担当者向けの手順、効果の測り方</p></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="cases" class="section alt" aria-labelledby="cases-title">
+    <section id="profile" class="section section-dark" aria-labelledby="profile-title">
       <div class="wrap">
         <div class="section-head">
-          <p class="section-label">Cases</p>
+          <p class="section-number">03 · PERSON</p>
           <div>
-            <h2 id="cases-title">実際に手を動かしている業務です。</h2>
-            <p class="section-copy">お客様の案件と、自分の事業での実践を並べています。どれも今動いているものです。社名は契約の都合で伏せています。</p>
+            <h2 id="profile-title">相談した本人が、<br>整理から実装まで担当します。</h2>
+            <p class="section-copy">営業担当が話を聞き、別の人が作る体制ではありません。窓口、設計、実装、説明まで稲田が直接担当します。</p>
           </div>
         </div>
-        <div class="scope-grid">
-          <article class="scope-card">
-            <h3>A社様｜地域コミュニティの運営団体</h3>
-            <p>独自に発行している通貨の記録を、手書きの台帳とExcel1枚で管理。発行のたびに手書きと押印が必要で、転記の書き間違いも起きていた。</p>
-            <ul>
-              <li>台帳を「取引の記録」と「資金の管理」に分けて設計し直し</li>
-              <li>手書き発行をWebシステムに置き換え</li>
-              <li>2026年9月の納品を目処に開発中</li>
-            </ul>
-          </article>
-          <article class="scope-card">
-            <h3>自社実践｜請求書の作成・発行</h3>
-            <p>分割払いの契約で、毎月同じ形式の請求書を人が作る運用。金額と支払期日を毎回書き換えるため、間違いが起きやすい。</p>
-            <ul>
-              <li>契約内容から全6回分の請求書をまとめて生成</li>
-              <li>PDFまで自動で出力</li>
-              <li>毎月の作成作業をゼロにした</li>
-            </ul>
-          </article>
-          <article class="scope-card">
-            <h3>自社実践｜議事録の作成と配布</h3>
-            <p>打ち合わせのたびに内容を書き起こし、相手ごとにまとめ直して送る作業に時間がかかっていた。</p>
-            <ul>
-              <li>録画から議事録の下書きを自動生成</li>
-              <li>相手ごとに宛先を判定してチャットへ自動送付</li>
-              <li>打ち合わせ後の作業を、内容の確認だけにした</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="process-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-label">How it works</p>
-          <div>
-            <h2 id="process-title">1業務を決めて、そこだけ変えます。</h2>
-            <p class="section-copy">最初から複数の業務に手を広げません。効果が見えないまま費用だけ増える進め方を避けるためです。</p>
-          </div>
-        </div>
-        <div class="process">
-          <article class="process-step">
-            <small>01</small>
-            <h3>今の困りごとを聞く</h3>
-            <p>どの作業に、誰の時間が、どれくらい取られているかを聞きます。整理できていなくて構いません。</p>
-          </article>
-          <article class="process-step">
-            <small>02</small>
-            <h3>対象を1業務に絞る</h3>
-            <p>時間が減りやすく、間違えても取り返しがつく業務から選びます。いきなり基幹業務には触りません。</p>
-          </article>
-          <article class="process-step">
-            <small>03</small>
-            <h3>実際の書類で試す</h3>
-            <p>御社の実物を使って、AIの下書きがどこまで使えるかを一緒に見ます。机上の説明では終わらせません。</p>
-          </article>
-          <article class="process-step">
-            <small>04</small>
-            <h3>手順として社内に残す</h3>
-            <p>担当者が変わっても回るように、手順書の形にして渡します。次の業務に進むかは、そこで判断してください。</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="effect" class="section alt" aria-labelledby="effect-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-label">Effect</p>
-          <div>
-            <h2 id="effect-title">どのくらい減るのかは、一緒に数えます。</h2>
-            <p class="section-copy">「劇的に効率化します」とは言いません。今その作業に何時間かかっているかを数えて、変えたあとにもう一度数える。減っていなければ、やり方が間違っているということです。</p>
-          </div>
-        </div>
-        <div class="situations">
-          <div class="situation-main">
-            <h3>たとえば、見積書づくりの場合。</h3>
-            <p>1件あたり30分かかっていて、月に40件あるなら、それだけで月20時間。下書きをAIに任せて1件10分になれば、月13時間が空く計算になります。</p>
-            <p>実際には御社の件数と時間で計算します。他社の平均値ではなく、御社の数字で出します。</p>
-          </div>
-          <ul class="situation-list">
-            <li>相談の場で、今かかっている時間を数える</li>
-            <li>対象業務を決めて、変えたあとにもう一度数える</li>
-            <li>減っていなければ、対象業務の選び方から見直す</li>
-            <li>数字は御社の実際の件数で出す。他社の平均値は使わない</li>
-          </ul>
-        </div>
-        <div class="price-note">
-          <strong>AIを入れたのに、3か月後には誰も使っていない。これがいちばん多い失敗です。</strong><br>
-          原因はたいてい、ツールを入れて終わりにしていることです。誰がどの場面で使うのか、間違いをどこで止めるのかが決まっていないと、現場は元のやり方に戻ります。だから対象を1業務に絞り、担当者の手順として社内に残すところまでを範囲にしています。
-        </div>
-      </div>
-    </section>
-
-    <section id="plans" class="section" aria-labelledby="plans-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-label">Plans</p>
-          <div>
-            <h2 id="plans-title">相談は無料です。費用は業務を見てから。</h2>
-            <p class="section-copy">対象の業務、今の書類の作り方、社内の体制によって手間が変わるため、金額は先に決めていません。業務を見せていただいたうえで、その範囲に対してお見積もりします。</p>
-          </div>
-        </div>
-        <div class="plans">
-          <article class="plan entry">
-            <p class="step"><b>STEP 01</b> 相談</p>
-            <h3>30分相談</h3>
-            <p class="price"><span class="free-price">無料</span></p>
-            <span class="here">まずここから</span>
-            <p class="plan-desc">今どの作業に時間が取られているかを聞き、AIで軽くできそうな業務があるかを一緒に見ます。</p>
-            <ul>
-              <li>30分オンライン</li>
-              <li>整理できていない状態でOK</li>
-              <li>この場での契約はありません</li>
-            </ul>
-          </article>
-          <article class="plan">
-            <p class="step"><b>STEP 02</b> 対象を決める</p>
-            <h3>1業務を選んで見積もる</h3>
-            <p class="price price-text">相談後にお見積もり</p>
-            <p class="plan-desc">対象業務を1つ決め、今の流れと必要な作業を確認したうえで、範囲と費用をお出しします。</p>
-            <ul>
-              <li>対象業務の現状を確認</li>
-              <li>やること・やらないことを明記</li>
-              <li>範囲と金額を先に文書で出す</li>
-            </ul>
-          </article>
-          <article class="plan">
-            <p class="step"><b>STEP 03</b> 実行</p>
-            <h3>実際に変えて、社内に残す</h3>
-            <p class="price price-text">合意した範囲で実施</p>
-            <p class="plan-desc">御社の実物を使って形にし、担当者が自分で回せる手順まで持っていきます。</p>
-            <ul>
-              <li>実際の書類・データで作る</li>
-              <li>人が確認する箇所をルール化</li>
-              <li>手順書として社内に残す</li>
-            </ul>
-          </article>
-        </div>
-        <div class="price-note">
-          <strong>先に大きな金額を提示することはしません。</strong><br>
-          30分相談は無料で、その場で契約をお願いすることもありません。対象の業務が決まってから、その範囲に対してお見積もりします。外部ツールの利用料が必要な場合は、その分も含めて事前にお伝えします。
-        </div>
-      </div>
-    </section>
-
-    <section id="profile" class="section alt" aria-labelledby="profile-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="section-label">Partner</p>
-          <div>
-            <h2 id="profile-title">担当する人。</h2>
-            <p class="section-copy">窓口も作業も、私が直接担当します。営業担当が話を聞いて、別の人が作る形にはなりません。</p>
-          </div>
-        </div>
-        <div class="profile-panel">
-          <img src="assets/inajiro-professional-v1.png" alt="稲田裕次郎（いなじろう）" />
-          <div>
+        <div class="profile-layout">
+          <div class="profile-photo"><img src="assets/inajiro-professional-v1.png" alt="スーツ姿の稲田裕次郎" /></div>
+          <div class="profile-content">
             <h3>稲田裕次郎（いなじろう）</h3>
-            <p class="profile-role">株式会社リクルート｜ソフトウェアエンジニア</p>
-            <p>リクルートでWebサービスのプロダクト開発に携わっています。普段の仕事は、現場の「これが面倒」という話を聞いて、どこまでを仕組みにするかを決め、実際に作って運用するところまでです。</p>
-            <p>その進め方を、中小企業の書類仕事に当てはめています。AIに任せる部分と人が確認する部分を分けて、担当者が自分で回せる形にするまでを一緒にやります。</p>
-            <div class="proof-box">
-              <strong>担当してきたこと</strong>
-              <p>何を作るか決まっていない状態から、話を聞いて決めること。入力する人が迷わない形にすること。社内の人が状況を確認できるようにすること。別々のサービスに散らばった情報をつなぐこと。仕事で担当してきたのは、この種類の作業です。</p>
-              <p>自分の仕事でも、資料づくりや情報整理をAIに下書きさせる形を日常的に使っています。使えない場面も含めて、どこまで任せられるかは実際に試して確かめています。</p>
-              <p>個人向けにも、AI活用や開発の相談支援を行ってきました。相手の話を聞いて次にやることを具体化するのは、その中で身につけたやり方です。</p>
-              <p class="proof-note">本サービスは個人事業として提供しています。所属会社の業務・サービスとは関係がなく、契約・請求も個人事業としてお受けします。</p>
+            <p class="role">株式会社リクルート｜ソフトウェアエンジニア</p>
+            <p>リクルートのSUUMO領域で、新しい業務システムの開発に、要件整理から本番リリースまで一貫して携わっています。現場の要望を整理し、どの業務を仕組みにするか、間違いや漏れをどこで防ぐかを決め、実際に動くところまで担当しています。</p>
+            <p>現在は開発リーダーとして、ベトナムの開発チームと追加機能の開発を進めています。</p>
+            <div class="experience-lines">
+              <div class="experience-line"><strong>法人実務</strong><span>法人向けAI活用支援として、AIコーディング研修のカリキュラム設計を完了</span></div>
+              <div class="experience-line"><strong>業務の整理</strong><span>人によって違う手順を分解し、間違いを止める箇所と人の確認点を決める</span></div>
+              <div class="experience-line"><strong>仕組みづくり</strong><span>必要な範囲だけを作り、テスト・レビュー・運用手順までつなげる</span></div>
             </div>
+            <p class="profile-note">本サービスは個人事業として提供しています。所属会社の業務・サービスとは関係がなく、契約・請求も個人事業としてお受けします。</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases" class="section section-light" aria-labelledby="cases-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-number">04 · CASES</p>
+          <div>
+            <h2 id="cases-title">派手なデモではなく、<br>実際の業務を変えます。</h2>
+            <p class="section-copy">完了した実践と開発中の案件を分けて掲載しています。成果は実際に確認できた範囲だけを書いています。</p>
+          </div>
+        </div>
+        <div class="cases-layout">
+          <article class="case-main">
+            <span class="case-status">小規模組織 · 開発中</span>
+            <h3>紙の台帳とExcelで管理していた業務を、Webシステムへ</h3>
+            <p>記録のたびに手書きと転記が必要で、情報の意味も1枚の表に混ざっていました。現在の業務を整理し、担当者が状況を確認できる仕組みを開発しています。</p>
+            <div class="case-flow">
+              <div><strong>整理</strong><p>1枚に混ざっていた情報を、取引の記録と資金の管理へ分ける</p></div>
+              <div><strong>実行</strong><p>手書きとExcel中心の運用を、ブラウザで使えるシステムへ置き換える</p></div>
+              <div><strong>状態</strong><p>設計・開発・継続支援を進行中。完了実績としては扱っていません</p></div>
+            </div>
+          </article>
+          <div class="case-side">
+            <article class="mini-case"><small>自社実践 · 完了</small><h3>分割請求書をまとめて生成</h3><p>契約内容から全6回分の請求書を作り、PDFまで出力。毎月の作成作業をなくしました。</p></article>
+            <article class="mini-case"><small>自社実践 · 運用中</small><h3>議事録の整理と配布</h3><p>録画から議事録の下書きを作り、相手ごとの配布先へ送る仕組みを運用しています。人は内容の確認に集中します。</p></article>
+          </div>
+        </div>
+        <div class="measure-box">
+          <div><strong>効果の確認</strong><h3>「便利そう」では終わらせません。</h3></div>
+          <div><p>相談時に、今かかっている時間・件数・手戻りを確認します。実行後に同じ数字をもう一度測り、減っていなければ対象業務や方法を見直します。他社の平均ではなく、実際の業務の数字で判断します。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price" class="section" aria-labelledby="price-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="section-number">05 · PROCESS</p>
+          <div>
+            <h2 id="price-title">相談は無料です。<br>費用は業務を見てから決めます。</h2>
+            <p class="section-copy">必要な作業は、資料の量、例外の数、使っているサービス、実装範囲によって変わります。先に一律価格を出さず、範囲と完了条件を文書で示します。</p>
+          </div>
+        </div>
+        <div class="steps">
+          <article class="step-row"><span>01</span><h3>30分相談</h3><p>今いちばん面倒な作業を聞き、対象業務として切り出せるかを確認します。整理できていなくて構いません。</p><p class="step-price">無料</p></article>
+          <article class="step-row"><span>02</span><h3>整理・見積</h3><p>入力、出力、判断、例外、人の確認点を整理し、やること・やらないこと・成果物・費用を文書で出します。</p><p class="step-price">個別見積</p></article>
+          <article class="step-row"><span>03</span><h3>実行</h3><p>合意した1業務だけを対象に、必要な設定・AI・小さな開発・テストを実施します。</p><p class="step-price">合意後に開始</p></article>
+          <article class="step-row"><span>04</span><h3>引き渡し</h3><p>人が確認する箇所、担当者向けの手順、効果の測り方を残します。追加業務は別途判断します。</p><p class="step-price">手順まで残す</p></article>
+        </div>
+        <div class="price-note"><strong>30分相談の場で契約をお願いすることはありません。</strong><br />既存サービスや手順変更だけで足りる場合も、そのままお伝えします。外部サービスの利用料が必要な場合は、見積時に分けて示します。</div>
+      </div>
+    </section>
+
+    <section class="section section-light" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head"><p class="section-number">06 · FAQ</p><div><h2 id="faq-title">相談前によくある不安。</h2></div></div>
+        <div class="faq">
+          <details><summary>AIやシステムに詳しくなくても相談できますか。</summary><p>問題ありません。ツール名ではなく、今どんな手順で作業し、どこで困っているかを伺います。AIを使うべきかも含めて判断します。</p></details>
+          <details><summary>既存のサービスで解決できる場合はどうなりますか。</summary><p>新しく作らず、既存サービスや手順変更を優先します。個別開発が必要な部分だけ残った場合に、範囲を絞って見積もります。</p></details>
+          <details><summary>小さな相談でも大丈夫ですか。</summary><p>対象を1業務に切れる相談を優先しています。全社改革や基幹システムの全面刷新より、毎月・毎週繰り返している1つの作業が向いています。</p></details>
+          <details><summary>機密情報や顧客データはどう扱いますか。</summary><p>相談時は、固有名詞や個人情報を伏せたサンプルで進められます。本番データや認証情報を預かる必要がある場合は、範囲と管理方法を事前に確認します。</p></details>
         </div>
       </div>
     </section>
 
     <section id="contact" class="section contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <h2 id="contact-title">まずは、今いちばん面倒な作業を教えてください。</h2>
-        <p>「見積書に時間がかかる」「電子請求書と言われて困っている」くらいの一言で構いません。30分相談で、AIで軽くできる業務があるかを一緒に見ます。</p>
+        <p class="eyebrow">First conversation</p>
+        <h2 id="contact-title">今いちばん面倒な作業を、<br>1つだけ教えてください。</h2>
+        <p>「毎月同じ請求書を作っている」「Excelへの転記が多い」「担当者しか手順が分からない」程度で構いません。30分で、対象にできる業務かを一緒に確認します。</p>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">問い合わせフォームを開く</a>
-          <a class="btn btn-secondary" href="#plans">進め方を見直す</a>
+          <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeDEtj5dp2Vca6_ErTNJ5VS5dUgcXdU03pFEOI4Q9rgPLbPiA/viewform" target="_blank" rel="noopener">30分相談フォームを開く</a>
+          <a class="button button-secondary" href="#price">相談後の流れを確認する</a>
         </div>
-        <small>フォームにいただいた内容をもとに、30分相談の日程をご連絡します。</small>
+        <small>フォームの内容を確認後、オンライン相談の日程をご連絡します。</small>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap footer-inner">
-      <span>© Inajiro Works</span>
-      <span>中小企業のAI業務改善｜稲田裕次郎</span>
-    </div>
+    <div class="wrap footer-inner"><span>© Inajiro Works</span><span>1業務からのAI業務改善｜稲田裕次郎</span></div>
   </footer>
 </body>
 </html>
